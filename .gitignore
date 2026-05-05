@@ -1,4 +1,4 @@
-﻿# Logs
+# Logs
 logs
 *.log
 npm-debug.log*
@@ -15,7 +15,7 @@ coverage
 *.local
 
 # Editor directories and files
-.vscode/*
+.vscode/settings.json
 !.vscode/extensions.json
 .idea
 *.suo
