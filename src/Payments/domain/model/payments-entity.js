@@ -1,9 +1,10 @@
 export class Payment {
-  constructor(id, amount, currency, status, date) {
+  constructor(id, bookingId, amount, date, method, status) {
     this.id = id;
+    this.bookingId = bookingId; // ID de la reserva asociada
     this.amount = amount;
-    this.currency = currency;
-    this.status = status;
     this.date = date;
+    this.method = method; // Ej: 'Visa', 'Mastercard', 'Yape'
+    this.status = status; // Ej: 'Completed', 'Pending'
   }
 }

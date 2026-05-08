@@ -36,7 +36,7 @@ export class PaymentsApiService {
     return new Promise((resolve) => {
       setTimeout(() => {
         resolve({ data: this.mockPayments });
-      }, 1000);
+      }, 50);
     });
   }
 
@@ -46,7 +46,7 @@ export class PaymentsApiService {
         const newPayment = { ...paymentData, id: Math.random() };
         this.mockPayments.push(newPayment);
         resolve({ data: newPayment });
-      }, 800);
+      }, 50);
     });
   }
 }
