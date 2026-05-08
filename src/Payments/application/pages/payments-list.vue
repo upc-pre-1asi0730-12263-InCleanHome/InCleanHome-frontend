@@ -3,137 +3,98 @@
     <header class="panel-header">
       <div class="welcome-section">
         <h1>Historial de Pagos</h1>
-        <p>Panel de cliente</p>
+        <p>Panel de cliente - InCleanHome</p>
       </div>
       <button class="btn-action">
         <span class="icon">🔍</span> Nuevo Pago
       </button>
     </header>
 
-    <section class="stats-grid">
-      <div class="stat-card">
-        <span class="stat-label">Total pagos</span>
-        <div class="stat-value">0</div>
-      </div>
-      <div class="stat-card">
-        <span class="stat-label">Exitosos</span>
-        <div class="stat-value">0</div>
-      </div>
-      <div class="stat-card">
-        <span class="stat-label">Pendientes</span>
-        <div class="stat-value">0</div>
-      </div>
-      <div class="stat-card highlight">
-        <span class="stat-label">Total gastado</span>
-        <div class="stat-value">S/ 0.00</div>
-      </div>
-    </section>
+    <div v-if="store.loading" class="loading-state">
+      <p>Cargando información financiera...</p>
+    </div>
 
-    <section class="main-content-card">
-      <h3>Transacciones recientes</h3>
-      <div class="empty-state">
-        <div class="empty-icon">💳</div>
-        <p>Aún no tienes pagos registrados.</p>
-        <a href="#" class="empty-link">Realizar tu primer pago</a>
-      </div>
-    </section>
+    <template v-else>
+      <section class="stats-grid">
+        <div class="stat-card">
+          <span class="stat-label">Total pagos</span>
+          <div class="stat-value">{{ store.payments.length }}</div>
+        </div>
+        <div class="stat-card">
+          <span class="stat-label">Exitosos</span>
+          <div class="stat-value text-success">{{ paymentsCompleted }}</div>
+        </div>
+        <div class="stat-card">
+          <span class="stat-label">Pendientes</span>
+          <div class="stat-value text-warning">{{ paymentsPending }}</div>
+        </div>
+        <div class="stat-card">
+          <span class="stat-label">Total gastado</span>
+          <div class="stat-value font-bold">S/ {{ totalSpent.toFixed(2) }}</div>
+        </div>
+      </section>
+
+      <section class="main-content-card">
+        <h3>Transacciones recientes</h3>
+        
+        <div v-if="!store.loading && store.payments.length === 0" class="empty-state">
+          <div class="empty-icon">💳</div>
+          <p>No se encontraron transacciones en tu historial.</p>
+        </div>
+
+        <div v-else class="table-responsive">
+          <table class="payments-table">
+            <thead>
+              <tr>
+                <th>ID Reserva</th>
+                <th>Fecha</th>
+                <th>Método</th>
+                <th>Monto</th>
+                <th>Estado</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr v-for="payment in store.payments" :key="payment.id">
+                <td>#{{ payment.bookingId }}</td>
+                <td>{{ payment.date }}</td>
+                <td>{{ payment.method }}</td>
+                <td class="font-bold">S/ {{ payment.amount.toFixed(2) }}</td>
+                <td>
+                  <span :class="['status-pill', payment.status ? payment.status.toLowerCase() : '']">
+                    {{ payment.status }}
+                  </span>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+    </template>
   </div>
 </template>
 
-<style scoped>
-.dashboard-container {
-  font-family: 'Inter', sans-serif;
-  color: #1e293b;
-}
+<script setup>
+import { onMounted, computed } from 'vue';
+// Importamos el store (asegúrate de que la ruta sea correcta)
+import { usePaymentsStore } from '../payments-store';
 
-/* Header */
-.panel-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 2rem;
-}
+const store = usePaymentsStore();
 
-.panel-header h1 {
-  font-size: 1.8rem;
-  font-weight: 700;
-  margin: 0;
-}
+// 1. ESTO ES LO QUE FALTA: Ejecutar la carga al entrar a la vista
+onMounted(async () => {
+  await store.fetchPayments();
+});
 
-.panel-header p {
-  color: #64748b;
-  margin: 0;
-}
+// 2. Cálculos para que las tarjetas de arriba funcionen
+const totalSpent = computed(() => {
+  return store.payments.reduce((acc, curr) => acc + curr.amount, 0);
+});
 
-.btn-action {
-  background-color: #2563eb;
-  color: white;
-  border: none;
-  padding: 0.6rem 1.2rem;
-  border-radius: 8px;
-  font-weight: 600;
-  cursor: pointer;
-}
+const paymentsCompleted = computed(() => {
+  return store.payments.filter(p => p.status === 'Completed').length;
+});
 
-/* Grid de tarjetas */
-.stats-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-  gap: 1.5rem;
-  margin-bottom: 2rem;
-}
-
-.stat-card {
-  background: white;
-  padding: 1.5rem;
-  border-radius: 16px;
-  border: 1px solid #e2e8f0;
-  display: flex;
-  flex-direction: column;
-}
-
-.stat-label {
-  color: #64748b;
-  font-size: 0.9rem;
-  margin-bottom: 0.5rem;
-}
-
-.stat-value {
-  font-size: 1.5rem;
-  font-weight: 700;
-}
-
-.highlight .stat-value {
-  color: #0f172a;
-}
-
-/* Tarjeta Blanca Grande */
-.main-content-card {
-  background: white;
-  border-radius: 16px;
-  border: 1px solid #e2e8f0;
-  padding: 2rem;
-  min-height: 300px;
-}
-
-.empty-state {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  margin-top: 3rem;
-  color: #94a3b8;
-}
-
-.empty-icon {
-  font-size: 3rem;
-  margin-bottom: 1rem;
-}
-
-.empty-link {
-  color: #2563eb;
-  text-decoration: none;
-  font-weight: 600;
-  margin-top: 1rem;
-}
-</style>
+const paymentsPending = computed(() => {
+  return store.payments.filter(p => p.status === 'Pending').length;
+});
+</script>

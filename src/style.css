@@ -1,0 +1,273 @@
+/* src/style.css */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+/* RESET GLOBAL PARA VITE */
+:root {
+  line-height: 1.5;
+  font-weight: 400;
+}
+
+body { 
+  margin: 0; 
+  background-color: #f8fafc; 
+  font-family: 'Inter', sans-serif;
+  min-width: 100vw;
+  min-height: 100vh;
+}
+
+#app {
+  width: 100%;
+}
+
+.app-layout {
+  display: grid;
+  grid-template-columns: 260px 1fr; 
+  min-height: 100vh;
+  width: 100%;
+}
+
+/* Sidebar Estilizado */
+.sidebar {
+  background: white;
+  border-right: 1px solid #e2e8f0;
+  display: flex;
+  flex-direction: column;
+  padding: 1.5rem;
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  box-sizing: border-box;
+}
+
+/* Logo Section */
+.logo-container {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 0.5rem 0 2.5rem 0.5rem;
+}
+
+.app-logo {
+  width: 32px;
+  height: 32px;
+  object-fit: contain;
+}
+
+.brand-name {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #0f172a;
+  letter-spacing: -0.5px;
+}
+
+/* Menú de Navegación */
+.nav-menu {
+  flex-grow: 1;
+}
+
+.nav-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 0.75rem 1rem;
+  color: #64748b;
+  text-decoration: none;
+  border-radius: 12px;
+  margin-bottom: 0.25rem;
+  transition: all 0.2s ease;
+  font-weight: 500;
+}
+
+.nav-item:hover {
+  background-color: #f1f5f9;
+  color: #1e293b;
+}
+
+.nav-item.router-link-active {
+  background-color: #eff6ff;
+  color: #2563eb;
+  font-weight: 600;
+}
+
+.icon {
+  font-style: normal;
+  font-size: 1.1rem;
+}
+
+/* User Footer Estilo Card */
+.user-footer {
+  margin-top: auto;
+  padding-top: 1rem;
+  border-top: 1px solid #f1f5f9;
+}
+
+.user-card {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 0.5rem;
+}
+
+.user-avatar-bg {
+  width: 40px;
+  height: 40px;
+  background-color: #8b5cf6; 
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.avatar-icon {
+  color: white;
+  font-size: 1.2rem;
+}
+
+.username {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #1e293b;
+}
+
+.main-viewport {
+  padding: 2.5rem;
+  overflow-y: auto;
+}
+
+/* --- ESTILOS DE CABECERA Y BOTONES --- */
+.panel-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+.welcome-section h1 {
+  margin: 0;
+  font-size: 1.8rem;
+  color: #0f172a;
+}
+
+.welcome-section p {
+  margin: 0;
+  color: #64748b;
+}
+
+.btn-action {
+  background-color: #2563eb;
+  color: white;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 10px;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: background 0.2s;
+}
+
+.btn-action:hover {
+  background-color: #1d4ed8;
+}
+
+/* Estado vacío */
+.empty-state {
+  text-align: center;
+  padding: 4rem;
+  color: #94a3b8;
+}
+
+.empty-icon {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+/* --- ESTILOS ESPECÍFICOS PARA PAGOS (AÑADIR AL FINAL) --- */
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.stat-card {
+  background: white;
+  padding: 1.5rem;
+  border-radius: 16px;
+  border: 1px solid #e2e8f0;
+}
+
+.stat-label {
+  color: #64748b;
+  font-size: 0.9rem;
+}
+
+.stat-value {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-top: 0.5rem;
+}
+
+.text-success { color: #10b981; }
+.text-warning { color: #f59e0b; }
+
+.main-content-card {
+  background: white;
+  border-radius: 16px;
+  border: 1px solid #e2e8f0;
+  padding: 2rem;
+}
+
+/* Estilos de la Tabla */
+.table-responsive {
+  overflow-x: auto;
+  margin-top: 1.5rem;
+}
+
+.payments-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+}
+
+.payments-table th {
+  padding: 1rem;
+  border-bottom: 2px solid #f1f5f9;
+  color: #64748b;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+}
+
+.payments-table td {
+  padding: 1.2rem 1rem;
+  border-bottom: 1px solid #f1f5f9;
+  font-size: 0.95rem;
+}
+
+/* Status Pills (Burbujas de estado) */
+.status-pill {
+  padding: 0.25rem 0.75rem;
+  border-radius: 9999px;
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+.status-pill.completed {
+  background-color: #dcfce7;
+  color: #166534;
+}
+
+.status-pill.pending {
+  background-color: #fef3c7;
+  color: #92400e;
+}
+
+.loading-state {
+  text-align: center;
+  padding: 2rem;
+  color: #64748b;
+}
+
+.font-bold { font-weight: 600; }
