@@ -25,6 +25,29 @@ export const usePaymentsStore = defineStore('payments', {
       } finally {
         this.loading = false;
       }
+    },
+
+    async addPayment(paymentData) {
+      this.loading = true;
+      try {
+        // 1. Enviamos al API (falso backend)
+        const response = await apiService.createPayment(paymentData);
+        
+        // 2. Convertimos la respuesta del API a una Entidad de nuestro dominio
+        const newEntity = PaymentsResource.toEntity(response.data);
+        
+        // 3. Lo agregamos localmente a la lista para que la tabla se actualice al instante
+        this.payments.push(newEntity);
+        
+        return true; // Para avisar al componente que todo salió bien
+      } catch (error) {
+        this.error = "No se pudo registrar el pago";
+        return false;
+      } finally {
+        this.loading = false;
+      }
     }
+
+
   }
 });

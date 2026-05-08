@@ -5,8 +5,8 @@
         <h1>Historial de Pagos</h1>
         <p>Panel de cliente - InCleanHome</p>
       </div>
-      <button class="btn-action">
-        <span class="icon">🔍</span> Nuevo Pago
+      <button class="btn-action" @click="showForm = !showForm">
+        <span class="icon">🔍</span> {{ showForm ? 'Cancelar' : 'Nuevo Pago' }}
       </button>
     </header>
 
@@ -15,6 +15,43 @@
     </div>
 
     <template v-else>
+      <Teleport to="body">
+        <div v-if="showForm" class="modal-overlay" @click.self="showForm = false">
+          <div class="modal-content main-content-card">
+            <div class="modal-header">
+              <h3>Registrar Nuevo Pago</h3>
+              <button class="btn-close" @click="showForm = false">&times;</button>
+            </div>
+            
+            <form @submit.prevent="handleCreatePayment" class="new-payment-form">
+              <div class="form-group">
+                <label>ID de Reserva</label>
+                <input v-model="newPayment.booking_id" type="number" placeholder="Ej: 101" required />
+              </div>
+              
+              <div class="form-group">
+                <label>Monto Total (S/)</label>
+                <input v-model="newPayment.total_amount" type="number" step="0.01" placeholder="0.00" required />
+              </div>
+              
+              <div class="form-group">
+                <label>Método de Pago</label>
+                <select v-model="newPayment.payment_method">
+                  <option value="Visa">Visa</option>
+                  <option value="Mastercard">Mastercard</option>
+                  <option value="Yape">Yape</option>
+                </select>
+              </div>
+
+              <div class="modal-actions">
+                <button type="button" class="btn-secondary" @click="showForm = false">Cancelar</button>
+                <button type="submit" class="btn-action">Guardar Pago</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </Teleport>
+
       <section class="stats-grid">
         <div class="stat-card">
           <span class="stat-label">Total pagos</span>
@@ -37,7 +74,7 @@
       <section class="main-content-card">
         <h3>Transacciones recientes</h3>
         
-        <div v-if="!store.loading && store.payments.length === 0" class="empty-state">
+        <div v-if="store.payments.length === 0" class="empty-state">
           <div class="empty-icon">💳</div>
           <p>No se encontraron transacciones en tu historial.</p>
         </div>
@@ -74,20 +111,45 @@
 </template>
 
 <script setup>
-import { onMounted, computed } from 'vue';
-// Importamos el store (asegúrate de que la ruta sea correcta)
+import { onMounted, computed, ref } from 'vue';
 import { usePaymentsStore } from '../payments-store';
 
 const store = usePaymentsStore();
+const showForm = ref(false);
 
-// 1. ESTO ES LO QUE FALTA: Ejecutar la carga al entrar a la vista
+// Datos iniciales para el formulario
+const newPayment = ref({
+  booking_id: '',
+  total_amount: '',
+  payment_method: 'Visa',
+  transaction_date: new Date().toISOString(),
+  status: 'Completed'
+});
+
+// Función para crear el pago
+const handleCreatePayment = async () => {
+  const success = await store.addPayment(newPayment.value);
+  if (success) {
+    newPayment.value = { 
+      booking_id: '', 
+      total_amount: '', 
+      payment_method: 'Visa',
+      transaction_date: new Date().toISOString(),
+      status: 'Completed' 
+    };
+    showForm.value = false;
+    alert("¡Pago registrado con éxito!");
+  }
+};
+
+// Carga inicial de datos
 onMounted(async () => {
   await store.fetchPayments();
 });
 
-// 2. Cálculos para que las tarjetas de arriba funcionen
+// Propiedades computadas para las estadísticas
 const totalSpent = computed(() => {
-  return store.payments.reduce((acc, curr) => acc + curr.amount, 0);
+  return store.payments.reduce((acc, curr) => acc + (curr.amount || 0), 0);
 });
 
 const paymentsCompleted = computed(() => {
