@@ -1,7 +1,7 @@
-// src/Payments/application/payments-store.js
 import { defineStore } from 'pinia';
 import { PaymentsApiService } from '../infrastructure/payments-api';
-import { PaymentsAssembler } from '../infrastructure/payments-assembler'; // <--- Verifica que el archivo se llame así exactamente
+// Importamos el Resource pero le damos el alias Assembler para que coincida con tus acciones
+import { PaymentsResource as PaymentsAssembler } from '../infrastructure/payments-resource'; 
 
 const apiService = new PaymentsApiService();
 
@@ -16,12 +16,10 @@ export const usePaymentsStore = defineStore('payments', {
       this.loading = true;
       try {
         const response = await apiService.getAllPayments();
-        // Aquí ocurre la magia: transformamos el JSON del falso backend a Entidades
+        // Ahora toEntityList ya existe en el Resource
         this.payments = PaymentsAssembler.toEntityList(response.data);
-        console.log("¡Datos cargados!", this.payments); 
       } catch (error) {
-        this.error = "Error al conectar con el servidor";
-        console.error("Fallo en el Store:", error);
+        this.error = "Error al cargar datos locales";
       } finally {
         this.loading = false;
       }
@@ -30,24 +28,16 @@ export const usePaymentsStore = defineStore('payments', {
     async addPayment(paymentData) {
       this.loading = true;
       try {
-        // 1. Enviamos al API (falso backend)
         const response = await apiService.createPayment(paymentData);
-        
-        // 2. Convertimos la respuesta del API a una Entidad de nuestro dominio
-        const newEntity = PaymentsResource.toEntity(response.data);
-        
-        // 3. Lo agregamos localmente a la lista para que la tabla se actualice al instante
-        this.payments.push(newEntity);
-        
-        return true; // Para avisar al componente que todo salió bien
+        const newEntity = PaymentsAssembler.toEntity(response.data);
+        this.payments.push(newEntity); 
+        return true;
       } catch (error) {
-        this.error = "No se pudo registrar el pago";
+        console.error("Error al guardar localmente:", error);
         return false;
       } finally {
         this.loading = false;
       }
     }
-
-
   }
 });

@@ -1,38 +1,19 @@
-// src/Payments/infrastructure/payments-api.js
-
 export class PaymentsApiService {
-  // Simulamos una base de datos local
   constructor() {
-    this.mockPayments = [
-      {
-        id: 1,
-        booking_id: 101,
-        total_amount: 150.00,
-        transaction_date: "2026-05-01T10:00:00Z",
-        payment_method: "Visa",
-        status: "Completed"
-      },
-      {
-        id: 2,
-        booking_id: 105,
-        total_amount: 85.50,
-        transaction_date: "2026-05-05T15:30:00Z",
-        payment_method: "Mastercard",
-        status: "Pending"
-      },
-      {
-        id: 3,
-        booking_id: 110,
-        total_amount: 200.00,
-        transaction_date: "2026-05-07T09:15:00Z",
-        payment_method: "Yape",
-        status: "Completed"
-      }
+    // Intentamos cargar datos previos del navegador
+    const saved = localStorage.getItem('in_clean_home_payments');
+    
+    // Si existen, los usamos; si no, usamos la lista inicial
+    this.mockPayments = saved ? JSON.parse(saved) : [
     ];
   }
 
+  // Método interno para persistir los datos
+  _persist() {
+    localStorage.setItem('in_clean_home_payments', JSON.stringify(this.mockPayments));
+  }
+
   async getAllPayments() {
-    // Simulamos un retraso de red de 1 segundo
     return new Promise((resolve) => {
       setTimeout(() => {
         resolve({ data: this.mockPayments });
@@ -43,8 +24,19 @@ export class PaymentsApiService {
   async createPayment(paymentData) {
     return new Promise((resolve) => {
       setTimeout(() => {
-        const newPayment = { ...paymentData, id: Math.random() };
+        // Calculamos el siguiente ID basado en el largo del array o el último ID
+        const nextId = this.mockPayments.length > 0 
+          ? Math.max(...this.mockPayments.map(p => p.id)) + 1 
+          : 1;
+
+        const newPayment = { 
+          ...paymentData, 
+          id: nextId, // Este es el número correlativo (1, 2, 3...)
+          total_amount: parseFloat(paymentData.total_amount)
+        };
+        
         this.mockPayments.push(newPayment);
+        this._persist(); // Guardamos permanentemente en el navegador
         resolve({ data: newPayment });
       }, 50);
     });

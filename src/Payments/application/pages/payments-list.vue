@@ -24,14 +24,15 @@
             </div>
             
             <form @submit.prevent="handleCreatePayment" class="new-payment-form">
-              <div class="form-group">
-                <label>ID de Reserva</label>
-                <input v-model="newPayment.booking_id" type="number" placeholder="Ej: 101" required />
-              </div>
               
               <div class="form-group">
                 <label>Monto Total (S/)</label>
                 <input v-model="newPayment.total_amount" type="number" step="0.01" placeholder="0.00" required />
+              </div>
+
+              <div class="form-group">
+                <label>Fecha de Transacción</label>
+                <input v-model="newPayment.transaction_date" type="date" required />
               </div>
               
               <div class="form-group">
@@ -43,6 +44,15 @@
                 </select>
               </div>
 
+              <div class="form-group">
+                <label>Estado del Pago</label>
+                <select v-model="newPayment.status">
+                  <option value="Completed">Completado</option>
+                  <option value="Pending">Pendiente</option>
+                  <option value="Cancelled">Cancelado</option>
+                </select>
+              </div>
+
               <div class="modal-actions">
                 <button type="button" class="btn-secondary" @click="showForm = false">Cancelar</button>
                 <button type="submit" class="btn-action">Guardar Pago</button>
@@ -51,6 +61,14 @@
           </div>
         </div>
       </Teleport>
+
+
+      <Transition name="fade">
+        <div v-if="notificationVisible" class="custom-toast">
+          <span class="icon">✅</span>
+          <p>¡Pago registrado con éxito en InCleanHome!</p>
+        </div>
+      </Transition>
 
       <section class="stats-grid">
         <div class="stat-card">
@@ -122,14 +140,26 @@ const newPayment = ref({
   booking_id: '',
   total_amount: '',
   payment_method: 'Visa',
-  transaction_date: new Date().toISOString(),
+  transaction_date: new Date().toISOString().substr(0, 10), // Fecha de hoy en formato YYYY-MM-DD
   status: 'Completed'
 });
+
+const notificationVisible = ref(false); // Nueva variable de estado
 
 // Función para crear el pago
 const handleCreatePayment = async () => {
   const success = await store.addPayment(newPayment.value);
   if (success) {
+    showForm.value = false;
+    
+    // REEMPLAZO DEL ALERT:
+    notificationVisible.value = true;
+    
+    // Ocultar automáticamente después de 3 segundos
+    setTimeout(() => {
+      notificationVisible.value = false;
+    }, 3000);
+
     newPayment.value = { 
       booking_id: '', 
       total_amount: '', 
@@ -137,8 +167,6 @@ const handleCreatePayment = async () => {
       transaction_date: new Date().toISOString(),
       status: 'Completed' 
     };
-    showForm.value = false;
-    alert("¡Pago registrado con éxito!");
   }
 };
 
