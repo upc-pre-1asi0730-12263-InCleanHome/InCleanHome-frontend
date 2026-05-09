@@ -1,0 +1,29 @@
+{
+  "booking": {
+    "title": "Book a Service",
+    "subtitle": "Fill in the details to schedule your home cleaning.",
+    "date": {
+      "label": "Service Date",
+      "placeholder": "Select a date"
+    },
+    "startTime": {
+      "label": "Start Time",
+      "placeholder": "Select start time"
+    },
+    "endTime": {
+      "label": "End Time",
+      "placeholder": "Select end time"
+    },
+    "instructions": {
+      "label": "Additional Instructions",
+      "placeholder": "Any special requests or notes for the cleaner..."
+    },
+    "summary": {
+      "title": "Cost Summary",
+      "duration": "Duration",
+      "rate": "Rate",
+      "total": "Total Estimated"
+    },
+    "submit": "Confirm Booking"
+  }
+}
