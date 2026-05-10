@@ -1,0 +1,20 @@
+{
+  "app": {
+    "name": "InCleanHome",
+    "title": "Bienvenido a InCleanHome",
+    "description": "Conecta con profesionales de limpieza confiables"
+  },
+  "reviews": {
+    "title": "Calificaciones y Opiniones",
+    "newReview": "Nueva Calificación",
+    "rating": "Calificación",
+    "comment": "Comentario",
+    "submit": "Enviar",
+    "cancel": "Cancelar",
+    "noReviews": "Sin calificaciones aún",
+    "reputationExcellent": "Excelente",
+    "reputationGood": "Bueno",
+    "reputationRegular": "Regular",
+    "reputationLow": "Bajo"
+  }
+}

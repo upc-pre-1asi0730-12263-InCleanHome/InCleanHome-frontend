@@ -1,0 +1,20 @@
+{
+  "app": {
+    "name": "InCleanHome",
+    "title": "Welcome to InCleanHome",
+    "description": "Connect with reliable cleaning professionals"
+  },
+  "reviews": {
+    "title": "Ratings and Reviews",
+    "newReview": "New Review",
+    "rating": "Rating",
+    "comment": "Comment",
+    "submit": "Submit",
+    "cancel": "Cancel",
+    "noReviews": "No reviews yet",
+    "reputationExcellent": "Excellent",
+    "reputationGood": "Good",
+    "reputationRegular": "Regular",
+    "reputationLow": "Low"
+  }
+}
