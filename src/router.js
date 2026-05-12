@@ -1,17 +1,19 @@
 import { createRouter, createWebHistory } from 'vue-router';
-// 1. Importamos las rutas del módulo Payments
 import paymentsRoutes from './Payments/infrastructure/payments-routes.js';
+import Home from './shared/presentation/views/home.vue'; // Importación necesaria
 
 const routes = [
   {
     path: '/',
-    redirect: '/home' // O la ruta que tengas por defecto
+    redirect: '/home'
   },
-  // 2. Esparcimos (spread) las rutas de pagos aquí
+  {
+    path: '/home',
+    name: 'home',
+    component: Home,
+    meta: { title: 'Inicio - InCleanHome' }
+  },
   ...paymentsRoutes,
-  
-  // Aquí irían tus otras rutas (User-Management, etc.)
-  // ...userRoutes,
 ];
 
 const router = createRouter({
