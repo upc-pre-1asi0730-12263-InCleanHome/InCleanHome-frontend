@@ -37,7 +37,18 @@
             <div class="map-marker" style="top: 30%; left: 40%" title="Miraflores: 5 Trabajadoras">📍</div>
             <div class="map-marker" style="top: 50%; left: 60%" title="San Borja: 8 Trabajadoras">📍</div>
             <div class="map-marker" style="top: 20%; left: 70%" title="Surco: 12 Trabajadoras">📍</div>
-            <img src="https://images.squarespace-cdn.com/content/v1/54905286e4b01066986e927e/1585093766723-R0R686K8N7M4339P5E7G/Google+Maps+Satellite.jpg" alt="Mapa de Lima" />
+            
+            <iframe
+              width="100%"
+              height="100%"
+              style="border:0"
+              loading="lazy"
+              allowfullscreen
+              referrerpolicy="no-referrer-when-downgrade"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15602.16453965578!2d-77.01235185!3d-12.10915635!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9105c86686000001%3A0x6734c568f5c355c!2sSan%20Borja!5e0!3m2!1ses!2spe!4v1715525000000!5m2!1ses!2spe"
+            >
+            </iframe>
+            
           </div>
           <div class="map-info">
             <p>Se encontraron 25 trabajadoras en distritos cercanos.</p>

@@ -380,45 +380,32 @@ body {
   transform: translateY(-20px);
 }
 
+/* --- MEJORA DEL MAPA --- */
 .map-placeholder {
-  position: relative;
+  position: relative; /* Importante para que los marcadores (📍) se posicionen encima */
   width: 100%;
-  height: 400px;
-  background: #e5e7eb;
-  border-radius: 16px;
+  height: 450px; /* Un poco más alto para mejor visibilidad */
+  background-color: #e5e7eb;
+  border-top-left-radius: 16px;
+  border-top-right-radius: 16px;
   overflow: hidden;
 }
 
-.map-placeholder img {
+.map-placeholder iframe {
   width: 100%;
   height: 100%;
-  object-fit: cover;
-  opacity: 0.7;
+  border: none;
 }
 
 .map-marker {
   position: absolute;
   font-size: 2rem;
+  z-index: 10; /* Asegura que el pin esté por encima del mapa */
   cursor: pointer;
-  z-index: 10;
-  transition: transform 0.2s;
-  filter: drop-shadow(0 2px 4px rgba(0,0,0,0.3));
+  pointer-events: auto; /* Permite interactuar con el marcador si deseas */
+  filter: drop-shadow(0 2px 4px rgba(0,0,0,0.5));
 }
 
-.map-marker:hover {
-  transform: scale(1.2);
-}
-
-.map-info {
-  background: white;
-  padding: 1rem;
-  border-bottom-left-radius: 16px;
-  border-bottom-right-radius: 16px;
-  border: 1px solid #e2e8f0;
-  font-size: 0.9rem;
-  font-weight: 500;
-  color: #1e293b;
-}
 
 /* --- THEMES POR USUARIO --- */
 .worker-theme {
@@ -428,4 +415,117 @@ body {
 .avatar-placeholder {
   font-size: 3rem;
   color: #94a3b8;
+}
+
+/* --- NUEVOS ESTILOS PARA HOME (CORRECCIÓN) --- */
+
+.home-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Banner Superior Verde */
+.welcome-banner {
+  background-color: #00c896 !important; /* Verde InCleanHome */
+  color: white;
+  padding: 1.2rem;
+  text-align: center;
+  border-radius: 12px;
+  font-weight: 600;
+  margin-bottom: 2rem;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+/* Grilla de Trabajadoras */
+.services-section {
+  margin-bottom: 2.5rem;
+}
+
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1.5rem;
+  margin-top: 1rem;
+}
+
+/* Tarjeta de Trabajadora */
+.service-card {
+  background: white;
+  border: 1px solid #e2e8f0;
+  border-radius: 20px;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+.service-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+}
+
+.card-avatar {
+  width: 80px;
+  height: 80px;
+  background-color: #f1f5f9;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1rem;
+}
+
+.verified {
+  color: #2563eb;
+  margin-left: 4px;
+}
+
+.rating {
+  color: #f59e0b;
+  font-weight: 600;
+  font-size: 0.9rem;
+  margin: 0.5rem 0;
+}
+
+.price {
+  color: #0f172a;
+  font-weight: 700;
+  margin-bottom: 1.2rem;
+}
+
+/* Botones de la Tarjeta */
+.card-actions {
+  display: flex;
+  gap: 10px;
+  width: 100%;
+}
+
+.btn-outline, .btn-primary {
+  flex: 1;
+  padding: 0.6rem;
+  border-radius: 8px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  border: none;
+}
+
+.btn-outline {
+  background: #1e293b;
+  color: white;
+}
+
+.btn-primary {
+  background: #00c896;
+  color: white;
+}
+
+/* Contenedor del Mapa */
+.map-container {
+  border-radius: 20px;
+  overflow: hidden;
+  border: 1px solid #e2e8f0;
+  background: white;
 }
