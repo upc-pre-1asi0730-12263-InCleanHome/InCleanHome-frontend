@@ -3,7 +3,7 @@
     <header class="panel-header">
       <div class="welcome-section">
         <h1>Historial de Pagos</h1>
-        <p>Panel de cliente - InCleanHome</p>
+        <p>Panel de {{ userRole }} - {{ userName }}</p>
       </div>
       <button class="btn-action" @click="showForm = !showForm">
         <span class="icon">🔍</span> {{ showForm ? 'Cancelar' : 'Nuevo Pago' }}
@@ -136,8 +136,17 @@
 import { onMounted, computed, ref } from 'vue';
 import { usePaymentsStore } from '../payments-store';
 
+//import { useAuthStore } from '@/User-Management/application/auth-store';
+
 const store = usePaymentsStore();
 const showForm = ref(false);
+//const authStore = useAuthStore(); // 2. Inicializa el store de usuario
+
+
+// 3. Usa el nombre del usuario logueado
+//const userName = computed(() => authStore.currentUser?.name || 'Usuario');
+//const userRole = computed(() => authStore.currentUser?.role === 'worker' ? 'Trabajadora' : 'Cliente');
+
 
 // Datos iniciales para el formulario
 const newPayment = ref({

@@ -529,3 +529,9 @@ body {
   border: 1px solid #e2e8f0;
   background: white;
 }
+
+
+/* Si el header tiene la clase worker-theme, se verá azul/verde según tu diseño */
+.worker-theme {
+  background-color: #00c896 !important; /* Color para la trabajadora */
+}
