@@ -26,7 +26,6 @@ import { usePaymentsStore } from '../payments-store';
 import NotificationToast from '/shared/presentation/components/notification-toast.vue';
 import PaymentCreateForm from '/src/Payments/presentation/components/payment-form.vue';
 
-
 const store = usePaymentsStore();
 const showForm = ref(false);
 const notification = ref({ visible: false, message: '' });
