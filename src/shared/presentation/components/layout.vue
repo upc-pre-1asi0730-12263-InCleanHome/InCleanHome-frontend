@@ -14,11 +14,8 @@
         <router-link to="/booking" class="nav-item">
           <i class="icon">📅</i> Reservas
         </router-link>
-        <router-link to="/reviews" class="nav-item">
-          <i class="icon">💬</i> Calificaciones
-        </router-link>
-        <router-link to="/users" class="nav-item">
-          <i class="icon">👤</i> Perfiles
+        <router-link to="/review-list" class="nav-item">
+          <i class="icon">⭐</i> Calificaciones
         </router-link>
         <router-link to="/payments" class="nav-item">
           <i class="icon">📊</i> Panel (Pagos)
@@ -27,12 +24,12 @@
 
       <div class="user-footer">
         <div class="user-card">
-          <router-link to="/users" class="nav-item">
+          <router-link to="/edit-profile" class="nav-item">
             <i class="icon">👤</i> USUARIO
           </router-link>
         </div>
         <div class="language-selector" style="padding: 1rem;">
-          <button @click="Salir" class="btn-lang">ESP</button>
+          <button @click="Salir" class="btn-lang">Cerrar Sesión</button>
         </div>
       </div>
 

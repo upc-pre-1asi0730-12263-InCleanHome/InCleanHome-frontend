@@ -57,14 +57,15 @@
         </div>
 
         <div class="form-group">
-          <label class="form-label">Distrito/Zona</label>
-          <input
-            v-model="district"
-            type="text"
-            placeholder="Tu barrio o zona"
-            class="form-input"
-            required
-          />
+          <label class="form-label">Distrito</label>
+
+          <select v-model="district" class="form-input" required>
+            <option disabled value="">Selecciona un distrito</option>
+
+            <option v-for="item in limaDistricts" :key="item" :value="item">
+              {{ item }}
+            </option>
+          </select>
         </div>
 
         <div class="form-group">
@@ -144,6 +145,7 @@ import { useRouter } from 'vue-router';
 import { ApiUserRepository } from '../../infrastructure/persistence/api-user-repository.js';
 import { UserRole } from '../../domain/model/enums/user-role.js';
 
+
 const router = useRouter();
 const repository = new ApiUserRepository();
 
@@ -151,8 +153,51 @@ const firstName = ref('');
 const lastName = ref('');
 const email = ref('');
 const password = ref('');
-const district = ref('');
-const description = ref('');
+const limaDistricts = [
+  'Ancón',
+  'Ate',
+  'Barranco',
+  'Breña',
+  'Carabayllo',
+  'Chaclacayo',
+  'Chorrillos',
+  'Cieneguilla',
+  'Comas',
+  'El Agustino',
+  'Independencia',
+  'Jesús María',
+  'La Molina',
+  'La Victoria',
+  'Lima',
+  'Lince',
+  'Los Olivos',
+  'Lurigancho',
+  'Lurín',
+  'Magdalena del Mar',
+  'Miraflores',
+  'Pachacámac',
+  'Pucusana',
+  'Pueblo Libre',
+  'Puente Piedra',
+  'Punta Hermosa',
+  'Punta Negra',
+  'Rímac',
+  'San Bartolo',
+  'San Borja',
+  'San Isidro',
+  'San Juan de Lurigancho',
+  'San Juan de Miraflores',
+  'San Luis',
+  'San Martín de Porres',
+  'San Miguel',
+  'Santa Anita',
+  'Santa María del Mar',
+  'Santa Rosa',
+  'Santiago de Surco',
+  'Surquillo',
+  'Villa El Salvador',
+  'Villa María del Triunfo'
+];const description = ref('');
 const selectedServices = ref([]);
 const criminalRecordPdf = ref(null);
 const experiencePdf = ref(null);

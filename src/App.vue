@@ -7,7 +7,7 @@ import { computed } from 'vue';
 const route = useRoute();
 
 // Rutas que no deben mostrar el layout (login y registro)
-const authRoutes = ['/', '/register', '/register-client', '/register-worker'];
+const authRoutes = ['/login', '/register', '/register-client', '/register-worker'];
 const showLayout = computed(() => !authRoutes.includes(route.path));
 </script>
 

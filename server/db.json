@@ -29,6 +29,13 @@
       "email": "vanessa@gmail.com",
       "password": "123456",
       "id": "SeLdeKRFjEE"
+    },
+    {
+      "role": "CLIENT",
+      "name": "joel lopez",
+      "email": "joellopez@gmail.com",
+      "password": "joellopez",
+      "id": "rTCjuT57mmI"
     }
   ],
   "workers": [],
