@@ -1,27 +1,77 @@
 <script setup>
+import HelloWorld from './components/HelloWorld.vue'
+import TheWelcome from './components/TheWelcome.vue'
+import Layout from './shared/presentation/components/layout.vue';
 </script>
 
 <template>
+  <header>
+    <img alt="Vue logo" class="logo" src="assets/logo.svg" width="125" height="125" />
+
+    <div class="wrapper">
+      <HelloWorld msg="You did it!" />
+    </div>
+  </header>
+
+  <main>
+    <TheWelcome />
+  </main>
+  
+  <Layout>
+    <router-view />
+  </Layout>
+
   <div id="app">
     <router-view />
   </div>
+
+
 </template>
 
-<style>
+<style scoped>
+header {
+  line-height: 1.5;
+}
+
+.logo {
+  display: block;
+  margin: 0 auto 2rem;
+}
+
+@media (min-width: 1024px) {
+  header {
+    display: flex;
+    place-items: center;
+    padding-right: calc(var(--section-gap) / 2);
+  }
+
+  .logo {
+    margin: 0 2rem 0 0;
+  }
+
+  header .wrapper {
+    display: flex;
+    place-items: flex-start;
+    flex-wrap: wrap;
+  }
+}
+
 * {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
 
-html, body {
-  font-family: 'Inter', 'Nunito', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-  background: #f7fafc;
-  color: #1a2e4a;
-}
+  html, body {
+    font-family: 'Inter', 'Nunito', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background: #f7fafc;
+    color: #1a2e4a;
+  }
 
-#app {
-  width: 100%;
-  min-height: 100vh;
-}
+  #app {
+    width: 100%;
+    min-height: 100vh;
+  }
+
+body { margin: 0; font-family: 'Inter', sans-serif; }
 </style>
