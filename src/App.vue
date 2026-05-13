@@ -1,12 +1,21 @@
+
 <script setup>
 import Layout from './shared/presentation/components/layout.vue';
-import { RouterView } from 'vue-router';
+import { RouterView, useRoute } from 'vue-router';
+import { computed } from 'vue';
+
+const route = useRoute();
+
+// Rutas que no deben mostrar el layout (login y registro)
+const authRoutes = ['/', '/register', '/register-client', '/register-worker'];
+const showLayout = computed(() => !authRoutes.includes(route.path));
 </script>
 
-<template>  
-  <Layout>
+<template>
+  <Layout v-if="showLayout">
     <router-view />
   </Layout>
+  <router-view v-else />
 </template>
 
 <style scoped>

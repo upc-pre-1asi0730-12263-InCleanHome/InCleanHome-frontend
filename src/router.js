@@ -2,12 +2,10 @@ import { createRouter, createWebHistory } from 'vue-router';
 import paymentsRoutes from './Payments/infrastructure/payments-routes.js';
 import Home from './shared/presentation/views/home.vue'; // Importación necesaria
 import searchRoutes from './Search-and-catalog/search-routes.js';
+import userRoutes from './User-Management/presentation/router/user-routes.js';
 
 const routes = [
-  {
-    path: '/',
-    redirect: '/home'
-  },
+  ...userRoutes,
   {
     path: '/home',
     name: 'home',
