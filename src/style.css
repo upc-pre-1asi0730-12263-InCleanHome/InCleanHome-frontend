@@ -536,7 +536,6 @@ body {
   background-color: #00c896 !important; /* Color para la trabajadora */
 }
 
-
 /* ============================================
    ESTILOS DE AUTENTICACIÓN (LOGIN/REGISTRO)
    ============================================ */
@@ -559,7 +558,6 @@ body {
   padding: 3rem;
   max-width: 420px;
   width: 100%;
-
   animation: slideInUp 0.5s ease-out;
 }
 

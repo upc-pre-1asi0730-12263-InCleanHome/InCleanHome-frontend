@@ -8,17 +8,17 @@
       "password": "12345"
     },
     {
-      "id": "f309",
+      "id": "ee1d",
       "role": "WORKER",
-      "firstName": "luis",
-      "lastName": "jose",
-      "email": "luisjose@gmail.com",
+      "firstName": "jose",
+      "lastName": "luis",
+      "email": "joseluis@gmail.com",
       "password": "98765",
       "district": "barrios altos",
-      "description": "soy nuevo",
+      "description": "",
       "services": [
-        "Childcare",
-        "Laundry"
+        "Cleaning",
+        "Cooking"
       ],
       "criminalRecordPdf": {},
       "experiencePdf": {}
