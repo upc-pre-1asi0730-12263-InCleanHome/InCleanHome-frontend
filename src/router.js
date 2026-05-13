@@ -2,9 +2,10 @@ import { createRouter, createWebHistory } from 'vue-router'
 import paymentsRoutes from './Payments/infrastructure/payments-routes.js'
 import { bookingRoutes } from './Booking/booking-routes.js'
 import { searchRoutes } from './Search-and-catalog/search-routes.js'
-import Home from './shared/presentation/views/home.vue'; // Importación necesaria
-import searchRoutes from './Search-and-catalog/search-routes.js';
+//import searchRoutes from './Search-and-catalog/search-routes.js';
 import userRoutes from './User-Management/presentation/router/user-routes.js';
+import reviewsRoutes from './Reviews-and-Evaluation/reviews-routes.js'
+import Home from './shared/presentation/views/home.vue'; // Importación necesaria
 
 const routes = [
   ...userRoutes,
@@ -17,6 +18,7 @@ const routes = [
   ...paymentsRoutes,
   ...bookingRoutes,
   ...searchRoutes,
+  ...reviewsRoutes,
 ]
 
 const router = createRouter({
