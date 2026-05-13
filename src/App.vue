@@ -1,38 +1,25 @@
 <script setup>
-import { ref } from 'vue'
-import WorkerListView    from '@/Search-and-catalog/presentation/views/WorkerListView.vue'
-import WorkerProfileView from '@/Booking/presentation/views/WorkerProfileView.vue'
-
-const currentView    = ref('search') // 'search' | 'profile'
-const selectedWorker = ref(null)
-
-function onSelectWorker(worker) {
-  selectedWorker.value = worker
-  currentView.value = 'profile'
-}
-
-function onBack() {
-  currentView.value = 'search'
-  selectedWorker.value = null
-}
+import Layout from './shared/presentation/components/layout.vue';
+import { RouterView } from 'vue-router';
 </script>
 
 <template>
-  <WorkerListView
-    v-if="currentView === 'search'"
-    @select-worker="onSelectWorker"
-  />
-  <WorkerProfileView
-    v-else-if="currentView === 'profile' && selectedWorker"
-    :worker="selectedWorker"
-    @back="onBack"
-  />
+  <Layout>
+    <router-view />
+  </Layout>
 </template>
 
 <style>
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-body {
-  font-family: 'Inter', system-ui, sans-serif;
+
+html, body {
+  font-family: 'Inter', 'Nunito', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   background: #f7fafc;
+  color: #1a2e4a;
+}
+
+#app {
+  width: 100%;
+  min-height: 100vh;
 }
 </style>

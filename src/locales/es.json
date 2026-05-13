@@ -1,4 +1,17 @@
 {
+  "common": {
+    "appTitle": "InCleanHome",
+    "search": "Buscar",
+    "filter": "Filtrar",
+    "sort": "Ordenar"
+  },
+  "catalog": {
+    "title": "Catálogo de Profesionales",
+    "subtitle": "Encuentra la trabajadora del hogar ideal para tus necesidades",
+    "results": "Resultados",
+    "noResults": "No se encontraron resultados",
+    "clearFilters": "Limpiar filtros"
+  },
   "booking": {
     "title": "Reservar un servicio",
     "subtitle": "Completa los detalles para programar tu limpieza del hogar.",

@@ -1,4 +1,17 @@
 {
+  "common": {
+    "appTitle": "InCleanHome",
+    "search": "Search",
+    "filter": "Filter",
+    "sort": "Sort"
+  },
+  "catalog": {
+    "title": "Professional Catalog",
+    "subtitle": "Find the ideal domestic worker for your needs",
+    "results": "Results",
+    "noResults": "No results found",
+    "clearFilters": "Clear filters"
+  },
   "booking": {
     "title": "Book a Service",
     "subtitle": "Fill in the details to schedule your home cleaning.",
