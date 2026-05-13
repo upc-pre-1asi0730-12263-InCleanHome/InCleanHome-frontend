@@ -1,5 +1,3 @@
-import { createMemoryHistory, createRouter } from 'vue-router'
-
 import LoginView
     from '../views/login-view.vue';
 
@@ -37,9 +35,5 @@ const routes= [
 
 
 ];
-const router = createRouter({
-    history: createMemoryHistory(),
-    routes,
-})
 
-export default router
+export default routes
