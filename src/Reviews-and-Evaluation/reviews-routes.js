@@ -1,4 +1,3 @@
-import ReviewsList from './presentation/views/reviews-list.vue'; 
 import WorkerReviews from './presentation/views/worker-reviews.vue'; 
 import ReviewForm from './presentation/views/review-form.vue';
 import ReviewsList from "@/Reviews-and-Evaluation/presentation/views/reviews-list.vue";
