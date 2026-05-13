@@ -1,12 +1,16 @@
-// Asegúrate de que la palabra "worker" esté bien escrita
+import ReviewsList from './presentation/views/reviews-list.vue'; 
 import WorkerReviews from './presentation/views/worker-reviews.vue'; 
 import ReviewForm from './presentation/views/review-form.vue'; 
 
 export const reviewsRoutes = [
   {
+    path: '/reviews',
+    name: 'reviews',
+    component: ReviewsList
+  },
+  {
     path: '/worker-reviews',
-    name: 'worker-reviews',
-    component: WorkerReviews
+    redirect: '/reviews'
   },
   {
     path: '/review-form',
