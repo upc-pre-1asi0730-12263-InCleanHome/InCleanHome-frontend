@@ -1,27 +1,35 @@
-import { createRouter, createWebHistory } from 'vue-router';
+import { createRouter, createWebHistory } from 'vue-router'
+import paymentsRoutes from './Payments/infrastructure/payments-routes.js'
+//import { bookingRoutes } from './Booking/booking-routes.js'
+import { searchRoutes } from './Search-and-catalog/search-routes.js'
+import reviewsRoutes from './Reviews-and-Evaluation/reviews-routes.js'
+import Home from './shared/presentation/views/home.vue'
 
-// Importar las rutas de cada módulo
-import reviewsRoutes from './Reviews-and-Evaluation/reviews-routes.js';
+const routes = [
+    {
+        path: '/',
+        redirect: '/home'
+    },
+    {
+        path: '/home',
+        name: 'home',
+        component: Home,
+        meta: { title: 'Inicio - InCleanHome' }
+    },
+    ...paymentsRoutes,
+    //...bookingRoutes,
+    ...searchRoutes,
+    ...reviewsRoutes,
+]
 
-// Crear el router con todas las rutas
 const router = createRouter({
     history: createWebHistory(),
-    routes: [
-        // Rutas del módulo Reviews-and-Evaluation
-        ...reviewsRoutes,
-        // Ruta por defecto para home si no coincide con otras rutas
-        {
-            path: '/',
-            name: 'home',
-            component: () => import('./shared/presentation/views/home.vue'),
-        },
-        // Ruta 404
-        {
-            path: '/:pathMatch(.*)*',
-            name: 'NotFound',
-            component: () => import('./shared/presentation/views/home.vue'),
-        },
-    ],
-});
+    routes
+})
 
-export default router;
+router.beforeEach((to, from, next) => {
+    document.title = to.meta.title || 'InCleanHome'
+    next()
+})
+
+export default router

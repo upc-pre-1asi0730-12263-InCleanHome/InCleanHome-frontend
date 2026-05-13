@@ -1,1 +1,7 @@
+<<<<<<< HEAD
 ﻿{ "/api/v1/*": "/$1" }
+=======
+{
+  "/workers": "/workers"
+}
+>>>>>>> origin/develop

@@ -39,4 +39,5 @@ export class ReviewsAssembler {
             reputation: WorkerReputation.computeReputation(avg),
         });
     }
+
 }
