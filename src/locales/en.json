@@ -3,13 +3,51 @@
     "appTitle": "InCleanHome",
     "search": "Search",
     "filter": "Filter",
-    "sort": "Sort"
+    "sort": "Sort",
+    "retry": "Retry",
+    "loading": "Loading..."
   },
   "catalog": {
-    "title": "Professional Catalog",
-    "subtitle": "Find the ideal domestic worker for your needs",
+    "title": "Professional",
+    "titleHighlight": "Catalog",
+    "subtitle": "Find the ideal domestic worker for your needs. All profiles are verified.",
     "results": "Results",
-    "noResults": "No results found",
-    "clearFilters": "Clear filters"
+    "noResults": "No results found with these filters.",
+    "clearFilters": "Clear filters",
+    "searching": "Searching for professionals..."
+  },
+  "worker": {
+    "back": "Back to catalog",
+    "verified": "Verified",
+    "rating": "Rating",
+    "reviews": "Reviews",
+    "experience": "Yrs exp.",
+    "hourlyRate": "Hourly rate",
+    "bookNow": "Hire now",
+    "aboutMe": "About me",
+    "servicesTitle": "Services offered",
+    "skills": "Skills",
+    "availability": "Weekly availability",
+    "languages": "Languages",
+    "loadingProfile": "Loading profile..."
+  },
+  "services": {
+    "cleaning": "Cleaning",
+    "cooking": "Cooking",
+    "garden": "Gardening",
+    "caregiving": "Caregiving"
+  },
+  "days": {
+    "monday": "Mon",
+    "tuesday": "Tue",
+    "wednesday": "Wed",
+    "thursday": "Thu",
+    "friday": "Fri",
+    "saturday": "Sat",
+    "sunday": "Sun"
+  },
+  "languageNames": {
+    "es": "🇵🇪 Spanish",
+    "en": "🇺🇸 English"
   }
 }

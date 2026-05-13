@@ -125,40 +125,26 @@
 </template>
 
 <script setup>
-import { ref } from 'vue';
+import { ref, computed } from 'vue';
+import { useI18n } from 'vue-i18n';
+//import { useAuthStore } from '@/User-Management/application/auth-store';
 
-// Lógica de tipo de usuario: 'client' o 'worker'
+//const { t } = useI18n();
+//const authStore = useAuthStore();
+
 const userType = ref('client'); 
 const userName = ref('Valeria');
 const selectedDistrict = ref('San Borja');
 
-// Datos de muestra para el catálogo de trabajadoras
-const sampleWorkers = ref([
-  { id: 1, name: 'Catalina Lopez', district: 'San Isidro', rating: 4.9, reviews: 500, price: 150.00 },
-  { id: 2, name: 'Maria Garcia', district: 'Miraflores', rating: 4.8, reviews: 320, price: 120.00 }
-]);
-</script>
-
-<!--
-
-<script setup>
-import { ref, computed } from 'vue';
-// 1. Importa tu store de autenticación (Asegúrate de que el archivo exista en esa ruta)
-import { useAuthStore } from '@/User-Management/application/auth-store'; 
-
-const authStore = useAuthStore();
-
-// 2. Convierte userType en una propiedad computada
-// Esto hará que la vista cambie automáticamente cuando el usuario inicie sesión
+/*
 const userType = computed(() => authStore.currentUser?.role || 'client'); 
-
 const userName = computed(() => authStore.currentUser?.name || 'Invitado');
 const selectedDistrict = ref('San Borja');
 
+*/
 const sampleWorkers = ref([
   { id: 1, name: 'Catalina Lopez', district: 'San Isidro', rating: 4.9, reviews: 500, price: 150.00 },
   { id: 2, name: 'Maria Garcia', district: 'Miraflores', rating: 4.8, reviews: 320, price: 120.00 }
 ]);
 </script>
 
--->

@@ -3,13 +3,51 @@
     "appTitle": "InCleanHome",
     "search": "Buscar",
     "filter": "Filtrar",
-    "sort": "Ordenar"
+    "sort": "Ordenar",
+    "retry": "Reintentar",
+    "loading": "Cargando..."
   },
   "catalog": {
-    "title": "Catálogo de Profesionales",
-    "subtitle": "Encuentra la trabajadora del hogar ideal para tus necesidades",
+    "title": "Catálogo de",
+    "titleHighlight": "Profesionales",
+    "subtitle": "Encuentra la trabajadora del hogar ideal para tus necesidades. Todos los perfiles están verificados.",
     "results": "Resultados",
-    "noResults": "No se encontraron resultados",
-    "clearFilters": "Limpiar filtros"
+    "noResults": "No se encontraron resultados con estos filtros.",
+    "clearFilters": "Limpiar filtros",
+    "searching": "Buscando profesionales..."
+  },
+  "worker": {
+    "back": "Volver al catálogo",
+    "verified": "Verificada",
+    "rating": "Calificación",
+    "reviews": "Reseñas",
+    "experience": "Años exp.",
+    "hourlyRate": "Tarifa por hora",
+    "bookNow": "Contratar ahora",
+    "aboutMe": "Acerca de mí",
+    "servicesTitle": "Servicios ofrecidos",
+    "skills": "Habilidades",
+    "availability": "Disponibilidad semanal",
+    "languages": "Idiomas",
+    "loadingProfile": "Cargando perfil..."
+  },
+  "services": {
+    "cleaning": "Limpieza",
+    "cooking": "Cocina",
+    "garden": "Jardín",
+    "caregiving": "Cuidados"
+  },
+  "days": {
+    "monday": "Lun",
+    "tuesday": "Mar",
+    "wednesday": "Mié",
+    "thursday": "Jue",
+    "friday": "Vie",
+    "saturday": "Sáb",
+    "sunday": "Dom"
+  },
+  "languageNames": {
+    "es": "🇵🇪 Español",
+    "en": "🇺🇸 Inglés"
   }
 }

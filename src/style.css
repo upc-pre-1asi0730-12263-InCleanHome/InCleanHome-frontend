@@ -535,3 +535,32 @@ body {
 .worker-theme {
   background-color: #00c896 !important; /* Color para la trabajadora */
 }
+
+
+
+/* Asegúrate de que el contenedor ocupe toda la pantalla */
+.layout-container {
+  width: 100%;
+  height: 100vh;
+}
+
+.language-selector-container {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  padding: 20px 0;
+}
+
+.btn-lang {
+  padding: 5px 10px;
+  cursor: pointer;
+  border: 1px solid #ccc;
+  background: white;
+  border-radius: 4px;
+}
+
+.btn-lang.active {
+  background: #00c896;
+  color: white;
+  border-color: #00c896;
+}
