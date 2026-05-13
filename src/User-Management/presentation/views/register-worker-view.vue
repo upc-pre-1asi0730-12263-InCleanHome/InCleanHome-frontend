@@ -1,76 +1,138 @@
 ﻿<template>
-  <div class="container">
-    <div class="card register-form">
-      <h1>Worker Registration - Test</h1>
-      <p style="text-align: center; color: var(--color-primary); font-weight: bold;">Component is loaded!</p>
+  <div class="auth-container">
+    <div class="auth-card auth-card-large">
+      <div class="auth-header">
+        <img src="/src/assets/logo-InCleanHome.png" alt="InCleanHome" class="auth-logo" />
+        <h1 class="auth-title">InCleanHome</h1>
+        <p class="auth-subtitle">Registro de Trabajador</p>
+      </div>
 
       <div v-if="error" class="error-message">{{ error }}</div>
 
-      <div class="form-group">
-        <input v-model="firstName" type="text" placeholder="First Name" class="form-input" />
-      </div>
-
-      <div class="form-group">
-        <input v-model="lastName" type="text" placeholder="Last Name" class="form-input" />
-      </div>
-
-      <div class="form-group">
-        <input v-model="email" type="email" placeholder="Email" class="form-input" />
-      </div>
-
-      <div class="form-group">
-        <input v-model="password" type="password" placeholder="Password" class="form-input" />
-      </div>
-
-      <div class="form-group">
-        <input v-model="district" type="text" placeholder="District" class="form-input" />
-      </div>
-
-      <div class="form-group">
-        <textarea v-model="description" placeholder="Description" class="form-textarea"></textarea>
-      </div>
-
-      <div class="form-group">
-        <label class="form-label">Available Services:</label>
-        <div class="services-grid">
-          <div class="service-checkbox">
-            <input type="checkbox" id="CLEANING" value="Cleaning" v-model="selectedServices" class="checkbox-input" />
-            <label for="CLEANING" class="checkbox-label">Cleaning</label>
+      <form @submit.prevent="register" class="auth-form">
+        <div class="form-row">
+          <div class="form-group">
+            <label class="form-label">Nombre</label>
+            <input
+              v-model="firstName"
+              type="text"
+              placeholder="Tu nombre"
+              class="form-input"
+              required
+            />
           </div>
-          <div class="service-checkbox">
-            <input type="checkbox" id="COOKING" value="Cooking" v-model="selectedServices" class="checkbox-input" />
-            <label for="COOKING" class="checkbox-label">Cooking</label>
-          </div>
-          <div class="service-checkbox">
-            <input type="checkbox" id="LAUNDRY" value="Laundry" v-model="selectedServices" class="checkbox-input" />
-            <label for="LAUNDRY" class="checkbox-label">Laundry</label>
-          </div>
-          <div class="service-checkbox">
-            <input type="checkbox" id="CHILDCARE" value="Childcare" v-model="selectedServices" class="checkbox-input" />
-            <label for="CHILDCARE" class="checkbox-label">Childcare</label>
-          </div>
-          <div class="service-checkbox">
-            <input type="checkbox" id="ELDERCARE" value="Eldercare" v-model="selectedServices" class="checkbox-input" />
-            <label for="ELDERCARE" class="checkbox-label">Eldercare</label>
+
+          <div class="form-group">
+            <label class="form-label">Apellido</label>
+            <input
+              v-model="lastName"
+              type="text"
+              placeholder="Tu apellido"
+              class="form-input"
+              required
+            />
           </div>
         </div>
-      </div>
 
-      <div class="form-group">
-        <label class="form-label">Criminal Record PDF:</label>
-        <input type="file" @change="e => criminalRecordPdf = e.target.files?.[0] || null" accept=".pdf" class="file-input" />
-        <span v-if="criminalRecordPdf" class="file-name">{{ criminalRecordPdf.name }}</span>
-      </div>
+        <div class="form-group">
+          <label class="form-label">Email</label>
+          <input
+            v-model="email"
+            type="email"
+            placeholder="correo@ejemplo.com"
+            class="form-input"
+            required
+          />
+        </div>
 
-      <div class="form-group">
-        <label class="form-label">Experience PDF:</label>
-        <input type="file" @change="e => experiencePdf = e.target.files?.[0] || null" accept=".pdf" class="file-input" />
-        <span v-if="experiencePdf" class="file-name">{{ experiencePdf.name }}</span>
-      </div>
+        <div class="form-group">
+          <label class="form-label">Contraseña</label>
+          <input
+            v-model="password"
+            type="password"
+            placeholder="••••••••"
+            class="form-input"
+            required
+          />
+        </div>
 
-      <div class="form-actions">
-        <button @click="register" class="btn btn-primary">Register</button>
-        <router-link to="/register"><button type="button" class="btn btn-secondary">Back</button></router-link>
+        <div class="form-group">
+          <label class="form-label">Distrito/Zona</label>
+          <input
+            v-model="district"
+            type="text"
+            placeholder="Tu barrio o zona"
+            class="form-input"
+            required
+          />
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Descripción Profesional</label>
+          <textarea
+            v-model="description"
+            placeholder="Cuéntanos sobre tu experiencia..."
+            class="form-textarea"
+          ></textarea>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Servicios Disponibles:</label>
+          <div class="services-grid-compact">
+            <div class="service-checkbox">
+              <input type="checkbox" id="CLEANING" value="Cleaning" v-model="selectedServices" class="checkbox-input" />
+              <label for="CLEANING" class="checkbox-label">🧹 Limpieza</label>
+            </div>
+            <div class="service-checkbox">
+              <input type="checkbox" id="COOKING" value="Cooking" v-model="selectedServices" class="checkbox-input" />
+              <label for="COOKING" class="checkbox-label">👨‍🍳 Cocina</label>
+            </div>
+            <div class="service-checkbox">
+              <input type="checkbox" id="LAUNDRY" value="Laundry" v-model="selectedServices" class="checkbox-input" />
+              <label for="LAUNDRY" class="checkbox-label">👚 Lavandería</label>
+            </div>
+            <div class="service-checkbox">
+              <input type="checkbox" id="CHILDCARE" value="Childcare" v-model="selectedServices" class="checkbox-input" />
+              <label for="CHILDCARE" class="checkbox-label">👶 Cuidado de niños</label>
+            </div>
+            <div class="service-checkbox">
+              <input type="checkbox" id="ELDERCARE" value="Eldercare" v-model="selectedServices" class="checkbox-input" />
+              <label for="ELDERCARE" class="checkbox-label">👴 Cuidado de mayores</label>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">📄 Antecedentes Penales (PDF)</label>
+          <input
+            type="file"
+            @change="handleCriminalRecordChange"
+            accept=".pdf"
+            class="file-input"
+            required
+          />
+          <span v-if="criminalRecordPdf" class="file-name">✓ {{ criminalRecordPdf.name }}</span>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">📄 Experiencia (PDF)</label>
+          <input
+            type="file"
+            @change="handleExperienceChange"
+            accept=".pdf"
+            class="file-input"
+            required
+          />
+          <span v-if="experiencePdf" class="file-name">✓ {{ experiencePdf.name }}</span>
+        </div>
+
+        <button type="submit" class="btn-login" :disabled="isLoading">
+          {{ isLoading ? 'Registrando...' : 'Registrarse' }}
+        </button>
+      </form>
+
+      <div class="auth-footer">
+        <router-link to="/register" class="auth-back">← Atrás</router-link>
       </div>
     </div>
   </div>
@@ -79,8 +141,11 @@
 <script setup>
 import { ref } from 'vue';
 import { useRouter } from 'vue-router';
+import { ApiUserRepository } from '../../infrastructure/persistence/api-user-repository.js';
+import { UserRole } from '../../domain/model/enums/user-role.js';
 
 const router = useRouter();
+const repository = new ApiUserRepository();
 
 const firstName = ref('');
 const lastName = ref('');
@@ -89,29 +154,75 @@ const password = ref('');
 const district = ref('');
 const description = ref('');
 const selectedServices = ref([]);
-let criminalRecordPdf = null;
-let experiencePdf = null;
+const criminalRecordPdf = ref(null);
+const experiencePdf = ref(null);
 const error = ref('');
+const isLoading = ref(false);
 
-const register = () => {
-  if (!firstName.value || !lastName.value || !email.value || !password.value) {
-    error.value = 'Please fill all required fields';
-    return;
+const handleCriminalRecordChange = (e) => {
+  criminalRecordPdf.value = e.target.files?.[0] || null;
+};
+
+const handleExperienceChange = (e) => {
+  experiencePdf.value = e.target.files?.[0] || null;
+};
+
+const register = async () => {
+  try {
+    error.value = '';
+
+    // Validaciones
+    if (!firstName.value || !lastName.value || !email.value || !password.value) {
+      error.value = 'Por favor completa todos los campos requeridos';
+      return;
+    }
+
+    if (!district.value) {
+      error.value = 'Por favor completa la zona/distrito';
+      return;
+    }
+
+    if (!criminalRecordPdf.value || !experiencePdf.value) {
+      error.value = 'Por favor carga ambos documentos PDF requeridos';
+      return;
+    }
+
+    if (selectedServices.value.length === 0) {
+      error.value = 'Por favor selecciona al menos un servicio';
+      return;
+    }
+
+    isLoading.value = true;
+
+    // Verificar si el email ya existe
+    const exists = await repository.findByEmail(email.value);
+    if (exists) {
+      error.value = 'Este email ya está registrado';
+      return;
+    }
+
+    // Registrar trabajador
+    await repository.registerWorker({
+      role: UserRole.WORKER,
+      firstName: firstName.value,
+      lastName: lastName.value,
+      email: email.value,
+      password: password.value,
+      district: district.value,
+      description: description.value,
+      services: selectedServices.value,
+      criminalRecordPdf: criminalRecordPdf.value,
+      experiencePdf: experiencePdf.value,
+    });
+
+    // Redirigir a home
+    router.push('/home');
+  } catch (err) {
+    error.value = 'Error al registrarse. Por favor intenta de nuevo.';
+    console.error('Registration error:', err);
+  } finally {
+    isLoading.value = false;
   }
-
-  if (!criminalRecordPdf || !experiencePdf) {
-    error.value = 'Upload required PDFs';
-    return;
-  }
-
-  if (selectedServices.value.length === 0) {
-    error.value = 'Select at least one service';
-    return;
-  }
-
-  error.value = '';
-  alert('Registration successful!');
-  router.push('/');
 };
 
 </script>

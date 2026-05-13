@@ -1,25 +1,55 @@
 ﻿<template>
-  <div class="container">
-    <div class="card">
-      <h1>Client Registration</h1>
+  <div class="auth-container">
+    <div class="auth-card">
+      <div class="auth-header">
+        <img src="/src/assets/logo-InCleanHome.png" alt="InCleanHome" class="auth-logo" />
+        <h1 class="auth-title">InCleanHome</h1>
+        <p class="auth-subtitle">Registro de Cliente</p>
+      </div>
 
       <div v-if="error" class="error-message">{{ error }}</div>
 
-      <div class="form-group">
-        <input v-model="name" type="text" placeholder="Full Name" class="form-input" />
-      </div>
+      <form @submit.prevent="register" class="auth-form">
+        <div class="form-group">
+          <label class="form-label">Nombre Completo</label>
+          <input
+            v-model="name"
+            type="text"
+            placeholder="Tu nombre"
+            class="form-input"
+            required
+          />
+        </div>
 
-      <div class="form-group">
-        <input v-model="email" type="email" placeholder="Email" class="form-input" />
-      </div>
+        <div class="form-group">
+          <label class="form-label">Email</label>
+          <input
+            v-model="email"
+            type="email"
+            placeholder="correo@ejemplo.com"
+            class="form-input"
+            required
+          />
+        </div>
 
-      <div class="form-group">
-        <input v-model="password" type="password" placeholder="Password" class="form-input" />
-      </div>
+        <div class="form-group">
+          <label class="form-label">Contraseña</label>
+          <input
+            v-model="password"
+            type="password"
+            placeholder="••••••••"
+            class="form-input"
+            required
+          />
+        </div>
 
-      <div class="form-actions">
-        <button @click="register" class="btn btn-primary">Register</button>
-        <router-link to="/register"><button type="button" class="btn btn-secondary">Back</button></router-link>
+        <button type="submit" class="btn-login" :disabled="isLoading">
+          {{ isLoading ? 'Registrando...' : 'Registrarse' }}
+        </button>
+      </form>
+
+      <div class="auth-footer">
+        <router-link to="/register" class="auth-back">← Atrás</router-link>
       </div>
     </div>
   </div>
@@ -51,33 +81,50 @@ const password = ref('');
 
 const error = ref('');
 
+const isLoading = ref(false);
+
 const register = async () => {
+  try {
+    error.value = '';
 
-  const exists =
-      await repository.findByEmail(
-          email.value
-      );
+    if (!name.value || !email.value || !password.value) {
+      error.value = 'Por favor completa todos los campos';
+      return;
+    }
 
-  if (exists) {
+    isLoading.value = true;
 
-    error.value =
-        'Email already exists';
+    const exists =
+        await repository.findByEmail(
+            email.value
+        );
 
-    return;
+    if (exists) {
+
+      error.value =
+          'Este email ya está registrado';
+
+      return;
+    }
+
+    await repository.registerClient({
+
+      role: UserRole.CLIENT,
+
+      name: name.value,
+
+      email: email.value,
+
+      password: password.value,
+    });
+
+    router.push('/home');
+  } catch (err) {
+    error.value = 'Error al registrarse. Por favor intenta de nuevo.';
+    console.error('Registration error:', err);
+  } finally {
+    isLoading.value = false;
   }
-
-  await repository.registerClient({
-
-    role: UserRole.CLIENT,
-
-    name: name.value,
-
-    email: email.value,
-
-    password: password.value,
-  });
-
-  router.push('/');
 };
 
 </script>

@@ -1,20 +1,31 @@
 ﻿<script setup>
 </script>
 <template>
-  <div class="container">
-    <div class="card">
-      <h1>Select Account Type</h1>
+  <div class="auth-container">
+    <div class="auth-card">
+      <div class="auth-header">
+        <img src="/src/assets/logo-InCleanHome.png" alt="InCleanHome" class="auth-logo" />
+        <h1 class="auth-title">InCleanHome</h1>
+        <p class="auth-subtitle">¿Qué tipo de cuenta deseas?</p>
+      </div>
 
-      <div class="form-actions" style="grid-template-columns: 1fr;">
-        <router-link to="/register-client" style="margin-bottom: 0.5rem;">
-          <button class="btn btn-primary" style="margin-top: 0;">Client Account</button>
+      <div class="register-options">
+        <router-link to="/register-client" class="register-option">
+          <div class="option-icon">👤</div>
+          <h3>Soy Cliente</h3>
+          <p>Busca y contrata servicios de limpieza</p>
         </router-link>
 
-        <router-link to="/register-worker">
-          <button class="btn btn-primary" style="margin-top: 0;">Worker Account</button>
+        <router-link to="/register-worker" class="register-option">
+          <div class="option-icon">🧹</div>
+          <h3>Soy Trabajador</h3>
+          <p>Ofrece tus servicios de limpieza</p>
         </router-link>
       </div>
-      <router-link to="/"><button type="button" class="btn btn-secondary">Back</button></router-link>
+
+      <div class="auth-footer">
+        <router-link to="/" class="auth-back">← Volver al inicio</router-link>
+      </div>
     </div>
   </div>
 
