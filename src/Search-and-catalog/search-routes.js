@@ -1,7 +1,7 @@
 export const searchRoutes = [
   {
-    path: '/catalog',
-    name: 'catalog',
+    path: '/search',
+    name: 'search',
     component: () => import('./presentation/views/catalog-view.vue'),
     meta: {
       title: 'Catálogo de Profesionales – InCleanHome',
@@ -9,7 +9,7 @@ export const searchRoutes = [
     },
   },
   {
-    path: '/catalog/:id',
+    path: '/search/:id',
     name: 'worker-profile',
     component: () => import('./presentation/views/worker-profile-view.vue'),
     props: true,
@@ -19,3 +19,5 @@ export const searchRoutes = [
     },
   },
 ]
+
+export default searchRoutes;
