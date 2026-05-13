@@ -10,11 +10,13 @@ import RegisterClientView
 import RegisterWorkerView
     from '../views/register-worker-view.vue';
 
+import EditProfile from "@/User-Management/presentation/views/edit-profile.vue";
+
 
 const routes= [
 
     {
-        path: '/',
+        path: '/login',
         component: LoginView,
     },
 
@@ -33,7 +35,10 @@ const routes= [
         component: RegisterWorkerView,
     },
 
-
+    {
+        path: '/edit-profile',
+        component: EditProfile,
+    }
 ];
 
 export default routes
