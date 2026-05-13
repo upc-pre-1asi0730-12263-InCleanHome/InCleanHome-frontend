@@ -1,4 +1,4 @@
-﻿{
+{
   "common": {
     "appTitle": "InCleanHome",
     "search": "Buscar",
@@ -48,6 +48,35 @@
   },
   "languageNames": {
     "es": "🇵🇪 Español",
-    "en": "🇺🇸 Inglés"
+    "en": "🇺🇸 Inglés",
+    "noResults": "No se encontraron resultados",
+    "clearFilters": "Limpiar filtros"
+  },
+  "booking": {
+    "title": "Reservar un servicio",
+    "subtitle": "Completa los detalles para programar tu limpieza del hogar.",
+    "date": {
+      "label": "Fecha del servicio",
+      "placeholder": "Selecciona una fecha"
+    },
+    "startTime": {
+      "label": "Hora de inicio",
+      "placeholder": "Selecciona hora de inicio"
+    },
+    "endTime": {
+      "label": "Hora de fin",
+      "placeholder": "Selecciona hora de fin"
+    },
+    "instructions": {
+      "label": "Instrucciones adicionales",
+      "placeholder": "Cualquier solicitud especial o nota para el limpiador..."
+    },
+    "summary": {
+      "title": "Resumen de costos",
+      "duration": "Duración",
+      "rate": "Tarifa",
+      "total": "Total estimado"
+    },
+    "submit": "Confirmar reserva"
   }
 }

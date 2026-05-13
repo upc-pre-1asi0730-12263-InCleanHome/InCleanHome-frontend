@@ -4,7 +4,6 @@ import { createPinia } from 'pinia'
 import router from './router' // Usamos tu archivo router.js principal
 import i18n from './i18n'
 
-// Estilos
 import './style.css'
 import './assets/main.css'
 

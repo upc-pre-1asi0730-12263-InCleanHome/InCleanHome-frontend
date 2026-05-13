@@ -1,7 +1,8 @@
-import { createRouter, createWebHistory } from 'vue-router';
-import paymentsRoutes from './Payments/infrastructure/payments-routes.js';
-import Home from './shared/presentation/views/home.vue'; // Importación necesaria
-import searchRoutes from './Search-and-catalog/search-routes.js';
+import { createRouter, createWebHistory } from 'vue-router'
+import paymentsRoutes from './Payments/infrastructure/payments-routes.js'
+import { bookingRoutes } from './Booking/booking-routes.js'
+import { searchRoutes } from './Search-and-catalog/search-routes.js'
+import Home from './shared/presentation/views/home.vue'
 
 const routes = [
   {
@@ -15,18 +16,18 @@ const routes = [
     meta: { title: 'Inicio - InCleanHome' }
   },
   ...paymentsRoutes,
+  ...bookingRoutes,
   ...searchRoutes,
-];
+]
 
 const router = createRouter({
   history: createWebHistory(),
   routes
-});
+})
 
-// Opcional: Cambiar el título de la pestaña según la ruta
 router.beforeEach((to, from, next) => {
-  document.title = to.meta.title || 'InCleanHome';
-  next();
-});
+  document.title = to.meta.title || 'InCleanHome'
+  next()
+})
 
-export default router;
+export default router
