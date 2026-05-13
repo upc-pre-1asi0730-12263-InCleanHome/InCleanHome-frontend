@@ -18,30 +18,6 @@ const PHOTO_COLORS = ['#c8e6d8', '#b5d5c5', '#a0c4b4', '#8ab4a4', '#74a494', '#5
 
 <template>
   <div class="view">
-
-    <!-- ── App Header ────────────────────────────────────── -->
-    <header class="app-header">
-      <div class="top-bar">
-        <button class="hamburger-btn" aria-label="Menú">
-          <span /><span /><span />
-        </button>
-        <div class="brand">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-            <path d="M3 9.5L12 3L21 9.5V20c0 .55-.45 1-1 1h-5v-6H9v6H4c-.55 0-1-.45-1-1V9.5Z" fill="#00b272"/>
-          </svg>
-          <span class="brand-name">InCleanHome</span>
-        </div>
-        <div class="lang-switch">
-          <button class="lang active">ESP</button>
-          <button class="lang">ENG</button>
-        </div>
-      </div>
-      <div class="banner">
-        <h1 class="banner-title">Trabajadores Cerca de Mi</h1>
-        <p class="banner-sub">{{ worker.location }}</p>
-      </div>
-    </header>
-
     <!-- ── Profile content ──────────────────────────────── -->
     <div class="profile-wrap">
 
@@ -188,63 +164,6 @@ const PHOTO_COLORS = ['#c8e6d8', '#b5d5c5', '#a0c4b4', '#8ab4a4', '#74a494', '#5
   font-family: 'Inter', system-ui, sans-serif;
   color: var(--text);
 }
-
-/* ── header (shared) ─────────────────────────────────────── */
-.app-header { background: var(--white); }
-.top-bar {
-  display: flex;
-  align-items: center;
-  padding: 0.7rem 1.25rem;
-  gap: 0.75rem;
-  border-bottom: 1px solid var(--border);
-}
-.hamburger-btn {
-  background: none;
-  border: none;
-  cursor: pointer;
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
-  padding: 4px;
-  flex-shrink: 0;
-}
-.hamburger-btn span {
-  display: block;
-  width: 20px;
-  height: 2px;
-  border-radius: 2px;
-  background: var(--navy);
-}
-.brand { flex: 1; display: flex; align-items: center; justify-content: center; gap: 0.4rem; }
-.brand-name {
-  font-family: 'Nunito', sans-serif;
-  font-weight: 800;
-  font-size: 1.1rem;
-  color: var(--navy);
-}
-.lang-switch { display: flex; gap: 0.3rem; flex-shrink: 0; }
-.lang {
-  border: 2px solid var(--green);
-  background: transparent;
-  color: var(--green);
-  border-radius: 6px;
-  padding: 0.2rem 0.5rem;
-  font-size: 0.75rem;
-  font-weight: 700;
-  cursor: pointer;
-  font-family: 'Nunito', sans-serif;
-  transition: background 0.15s, color 0.15s;
-}
-.lang.active { background: var(--green); color: var(--white); }
-.banner { background: var(--green); padding: 0.6rem 1.25rem; }
-.banner-title {
-  font-family: 'Nunito', sans-serif;
-  font-weight: 700;
-  font-size: 1.05rem;
-  color: var(--white);
-  margin: 0;
-}
-.banner-sub { font-size: 0.78rem; color: rgba(255,255,255,.82); margin: 0; }
 
 /* ── profile layout ──────────────────────────────────────── */
 .profile-wrap {
