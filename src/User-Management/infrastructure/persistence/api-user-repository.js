@@ -3,17 +3,6 @@
     apiUrl =
         'http://localhost:3000/users';
 
-    async findByEmail(email) {
-
-        const response = await fetch(
-            `${this.apiUrl}?email=${email}`
-        );
-
-        const users =
-            await response.json();
-
-        return users[0];
-    }
 
     async login(email, password) {
 
@@ -26,6 +15,20 @@
 
         return users[0];
     }
+        
+    async findByEmail(email) {
+
+        const response = await fetch(
+            `${this.apiUrl}?email=${email}`
+        );
+
+        const users =
+            await response.json();
+
+        return users[0];
+    }
+
+    
 
     async registerClient(user) {
 

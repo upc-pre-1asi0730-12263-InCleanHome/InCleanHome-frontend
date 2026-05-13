@@ -6,3 +6,5 @@ export const bookingRoutes = [
     meta: { title: 'Reservas – InCleanHome' }
   }
 ]
+
+export default bookingRoutes;

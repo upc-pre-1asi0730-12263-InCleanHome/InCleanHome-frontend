@@ -1,20 +1,25 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import paymentsRoutes from './Payments/infrastructure/payments-routes.js'
-import { bookingRoutes } from './Booking/booking-routes.js'
-import { searchRoutes } from './Search-and-catalog/search-routes.js'
-//import searchRoutes from './Search-and-catalog/search-routes.js';
+import Home from './shared/presentation/views/home.vue';
+import searchRoutes from './Search-and-catalog/search-routes.js';
 import userRoutes from './User-Management/presentation/router/user-routes.js';
-import reviewsRoutes from './Reviews-and-Evaluation/reviews-routes.js'
-import Home from './shared/presentation/views/home.vue'; // Importación necesaria
+import reviewsRoutes from './Reviews-and-Evaluation/reviews-routes.js';
+import paymentsRoutes from './Payments/infrastructure/payments-routes.js';
+import bookingRoutes from './Booking/booking-routes.js';
+
 
 const routes = [
-  ...userRoutes,
+  
+  {
+    path: '/',
+    redirect: '/home'
+  },
   {
     path: '/home',
     name: 'home',
     component: Home,
     meta: { title: 'Inicio - InCleanHome' }
   },
+  ...userRoutes,
   ...paymentsRoutes,
   ...bookingRoutes,
   ...searchRoutes,
@@ -27,8 +32,8 @@ const router = createRouter({
 })
 
 router.beforeEach((to, from, next) => {
-  document.title = to.meta.title || 'InCleanHome'
-  next()
+  document.title = to.meta.title || 'InCleanHome';
+  next();
 })
 
-export default router
+export default router;

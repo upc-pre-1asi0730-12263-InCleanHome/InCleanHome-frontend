@@ -1,25 +1,18 @@
-const ReviewsList = () => import('./presentation/views/reviews-list.vue');
-const ReviewForm = () => import('./presentation/views/review-form.vue');
-const WorkerReviews = () => import('./presentation/views/woker-reviews.vue');
+// Asegúrate de que la palabra "worker" esté bien escrita
+import WorkerReviews from './presentation/views/worker-reviews.vue'; 
+import ReviewForm from './presentation/views/review-form.vue'; 
 
-export default [
-    {
-        path: '/reviews',
-        name: 'reviews-list',
-        component: ReviewsList,
-        meta: { requiresAuth: true },
-    },
-    {
-        path: '/reviews/new',
-        name: 'review-form',
-        component: ReviewForm,
-        meta: { requiresAuth: true },
-    },
-    {
-        path: '/reviews/worker/:workerId',
-        name: 'worker-reviews',
-        component: WorkerReviews,
-        props: true,
-        meta: { requiresAuth: false },
-    },
+export const reviewsRoutes = [
+  {
+    path: '/worker-reviews',
+    name: 'worker-reviews',
+    component: WorkerReviews
+  },
+  {
+    path: '/review-form',
+    name: 'review-form',
+    component: ReviewForm
+  }
 ];
+
+export default reviewsRoutes
