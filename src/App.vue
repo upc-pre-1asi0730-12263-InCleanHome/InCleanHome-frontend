@@ -1,30 +1,35 @@
+
 <script setup>
-import HelloWorld from './components/HelloWorld.vue'
-import TheWelcome from './components/TheWelcome.vue'
+import Layout from './shared/presentation/components/layout.vue';
+import { RouterView, useRoute } from 'vue-router';
+import { computed } from 'vue';
+
+const route = useRoute();
+
+// Rutas que no deben mostrar el layout (login y registro)
+const authRoutes = ['/login', '/register', '/register-client', '/register-worker'];
+const showLayout = computed(() => !authRoutes.includes(route.path));
 </script>
 
 <template>
-  <header>
-    <img alt="Vue logo" class="logo" src="assets/logo.svg" width="125" height="125" />
-
-    <div class="wrapper">
-      <HelloWorld msg="You did it!" />
-    </div>
-  </header>
-
-  <main>
-    <TheWelcome />
-  </main>
+  <Layout v-if="showLayout">
+    <router-view />
+  </Layout>
+  <router-view v-else />
 </template>
 
-<style scoped>
-header {
-  line-height: 1.5;
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html, body {
+  font-family: 'Inter', 'Nunito', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background: #f7fafc;
+  color: #1a2e4a;
 }
 
-.logo {
-  display: block;
-  margin: 0 auto 2rem;
+#app {
+  width: 100%;
+  min-height: 100vh;
 }
 
 @media (min-width: 1024px) {
@@ -44,4 +49,23 @@ header {
     flex-wrap: wrap;
   }
 }
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  font-family: 'Inter', 'Nunito', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background: #f7fafc;
+  color: #1a2e4a;
+}
+
+#app {
+  width: 100%;
+  min-height: 100vh;
+}
+
+body { margin: 0; font-family: 'Inter', sans-serif; }
 </style>

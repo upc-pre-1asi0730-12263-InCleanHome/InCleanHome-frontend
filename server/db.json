@@ -1,0 +1,43 @@
+{
+  "users": [
+    {
+      "id": "5a26",
+      "role": "CLIENT",
+      "name": "natalia",
+      "email": "nativp2002@gmail.com",
+      "password": "12345"
+    },
+    {
+      "id": "ee1d",
+      "role": "WORKER",
+      "firstName": "jose",
+      "lastName": "luis",
+      "email": "joseluis@gmail.com",
+      "password": "98765",
+      "district": "barrios altos",
+      "description": "",
+      "services": [
+        "Cleaning",
+        "Cooking"
+      ],
+      "criminalRecordPdf": {},
+      "experiencePdf": {}
+    },
+    {
+      "role": "CLIENT",
+      "name": "vanessa",
+      "email": "vanessa@gmail.com",
+      "password": "123456",
+      "id": "SeLdeKRFjEE"
+    },
+    {
+      "role": "CLIENT",
+      "name": "joel lopez",
+      "email": "joellopez@gmail.com",
+      "password": "joellopez",
+      "id": "rTCjuT57mmI"
+    }
+  ],
+  "workers": [],
+  "$schema": "./node_modules/json-server/schema.json"
+}

@@ -1,0 +1,820 @@
+/* src/style.css */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+/* RESET GLOBAL PARA VITE */
+:root {
+  line-height: 1.5;
+  font-weight: 400;
+}
+
+body {
+  margin: 0;
+  background-color: #f8fafc;
+  font-family: 'Inter', sans-serif;
+  min-width: 100vw;
+  min-height: 100vh;
+}
+
+#app {
+  width: 100%;
+}
+
+.app-layout {
+  display: grid;
+  grid-template-columns: 260px 1fr;
+  min-height: 100vh;
+  width: 100%;
+}
+
+/* Sidebar Estilizado */
+.sidebar {
+  background: white;
+  border-right: 1px solid #e2e8f0;
+  display: flex;
+  flex-direction: column;
+  padding: 1.5rem;
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  box-sizing: border-box;
+}
+
+/* Logo Section */
+.logo-container {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 0.5rem 0 2.5rem 0.5rem;
+}
+
+.app-logo {
+  width: 32px;
+  height: 32px;
+  object-fit: contain;
+}
+
+.brand-name {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #0f172a;
+  letter-spacing: -0.5px;
+}
+
+/* Menú de Navegación */
+.nav-menu {
+  flex-grow: 1;
+}
+
+.nav-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 0.75rem 1rem;
+  color: #64748b;
+  text-decoration: none;
+  border-radius: 12px;
+  margin-bottom: 0.25rem;
+  transition: all 0.2s ease;
+  font-weight: 500;
+}
+
+.nav-item:hover {
+  background-color: #f1f5f9;
+  color: #1e293b;
+}
+
+.nav-item.router-link-active {
+  background-color: #eff6ff;
+  color: #2563eb;
+  font-weight: 600;
+}
+
+.icon {
+  font-style: normal;
+  font-size: 1.1rem;
+}
+
+/* User Footer Estilo Card */
+.user-footer {
+  margin-top: auto;
+  padding-top: 1rem;
+  border-top: 1px solid #f1f5f9;
+}
+
+.user-card {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 0.5rem;
+}
+
+.user-avatar-bg {
+  width: 40px;
+  height: 40px;
+  background-color: #8b5cf6;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.avatar-icon {
+  color: white;
+  font-size: 1.2rem;
+}
+
+.username {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #1e293b;
+}
+
+.main-viewport {
+  padding: 2.5rem;
+  overflow-y: auto;
+}
+
+/* --- ESTILOS DE CABECERA Y BOTONES --- */
+.panel-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+.welcome-section h1 {
+  margin: 0;
+  font-size: 1.8rem;
+  color: #0f172a;
+}
+
+.welcome-section p {
+  margin: 0;
+  color: #64748b;
+}
+
+.btn-action {
+  background-color: #2563eb;
+  color: white;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 10px;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: background 0.2s;
+}
+
+.btn-action:hover {
+  background-color: #1d4ed8;
+}
+
+/* Estado vacío */
+.empty-state {
+  text-align: center;
+  padding: 4rem;
+  color: #94a3b8;
+}
+
+.empty-icon {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+/* --- ESTILOS ESPECÍFICOS PARA PAGOS (AÑADIR AL FINAL) --- */
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.stat-card {
+  background: white;
+  padding: 1.5rem;
+  border-radius: 16px;
+  border: 1px solid #e2e8f0;
+}
+
+.stat-label {
+  color: #64748b;
+  font-size: 0.9rem;
+}
+
+.stat-value {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-top: 0.5rem;
+}
+
+.text-success { color: #10b981; }
+.text-warning { color: #f59e0b; }
+
+.main-content-card {
+  background: white;
+  border-radius: 16px;
+  border: 1px solid #e2e8f0;
+  padding: 2rem;
+}
+
+/* Estilos de la Tabla */
+.table-responsive {
+  overflow-x: auto;
+  margin-top: 1.5rem;
+}
+
+.payments-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+}
+
+.payments-table th {
+  padding: 1rem;
+  border-bottom: 2px solid #f1f5f9;
+  color: #64748b;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+}
+
+.payments-table td {
+  padding: 1.2rem 1rem;
+  border-bottom: 1px solid #f1f5f9;
+  font-size: 0.95rem;
+}
+
+/* Status Pills (Burbujas de estado) */
+.status-pill {
+  padding: 0.25rem 0.75rem;
+  border-radius: 9999px;
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+.status-pill.completed {
+  background-color: #dcfce7;
+  color: #166534;
+}
+
+.status-pill.pending {
+  background-color: #fef3c7;
+  color: #92400e;
+}
+
+.loading-state {
+  text-align: center;
+  padding: 2rem;
+  color: #64748b;
+}
+
+.font-bold { font-weight: 600; }
+
+
+.new-payment-form input, .new-payment-form select {
+  padding: 0.75rem;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  font-family: inherit;
+}
+
+.new-payment-form input:focus {
+  outline: 2px solid #2563eb;
+  border-color: #00c896;
+}
+
+/* Capa de fondo oscuro */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  backdrop-filter: blur(2px);
+}
+
+/* Caja blanca del modal */
+.modal-content {
+  background: white;
+  padding: 2rem;
+  border-radius: 12px;
+  width: 90%;
+  max-width: 500px;
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+  animation: slideIn 0.3s ease-out;
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+.btn-close {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: #64748b;
+}
+
+.form-group {
+  margin-bottom: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.modal-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.btn-secondary {
+  background: #f1f5f9;
+  color: #475569;
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+@keyframes slideIn {
+  from { transform: translateY(-20px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+.custom-toast {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background: #10b981; /* Un verde éxito acorde a tu dashboard */
+  color: white;
+  padding: 1rem 1.5rem;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+  z-index: 9999;
+  font-weight: 600;
+}
+
+/* Animación de entrada y salida */
+.fade-enter-active, .fade-leave-active {
+  transition: opacity 0.5s, transform 0.5s;
+}
+.fade-enter-from, .fade-leave-to {
+  opacity: 0;
+  transform: translateY(-20px);
+}
+
+/* --- MEJORA DEL MAPA --- */
+.map-placeholder {
+  position: relative; /* Importante para que los marcadores (📍) se posicionen encima */
+  width: 100%;
+  height: 450px; /* Un poco más alto para mejor visibilidad */
+  background-color: #e5e7eb;
+  border-top-left-radius: 16px;
+  border-top-right-radius: 16px;
+  overflow: hidden;
+}
+
+.map-placeholder iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+.map-marker {
+  position: absolute;
+  font-size: 2rem;
+  z-index: 10; /* Asegura que el pin esté por encima del mapa */
+  cursor: pointer;
+  pointer-events: auto; /* Permite interactuar con el marcador si deseas */
+  filter: drop-shadow(0 2px 4px rgba(0,0,0,0.5));
+}
+
+
+/* --- THEMES POR USUARIO --- */
+.worker-theme {
+  background-color: #2563eb !important; /* Azul para perfil trabajadora */
+}
+
+.avatar-placeholder {
+  font-size: 3rem;
+  color: #94a3b8;
+}
+
+/* --- NUEVOS ESTILOS PARA HOME (CORRECCIÓN) --- */
+
+.home-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Banner Superior Verde */
+.welcome-banner {
+  background-color: #00c896 !important; /* Verde InCleanHome */
+  color: white;
+  padding: 1.2rem;
+  text-align: center;
+  border-radius: 12px;
+  font-weight: 600;
+  margin-bottom: 2rem;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+/* Grilla de Trabajadoras */
+.services-section {
+  margin-bottom: 2.5rem;
+}
+
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1.5rem;
+  margin-top: 1rem;
+}
+
+/* Tarjeta de Trabajadora */
+.service-card {
+  background: white;
+  border: 1px solid #e2e8f0;
+  border-radius: 20px;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+.service-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+}
+
+.card-avatar {
+  width: 80px;
+  height: 80px;
+  background-color: #f1f5f9;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1rem;
+}
+
+.verified {
+  color: #2563eb;
+  margin-left: 4px;
+}
+
+.rating {
+  color: #f59e0b;
+  font-weight: 600;
+  font-size: 0.9rem;
+  margin: 0.5rem 0;
+}
+
+.price {
+  color: #0f172a;
+  font-weight: 700;
+  margin-bottom: 1.2rem;
+}
+
+/* Botones de la Tarjeta */
+.card-actions {
+  display: flex;
+  gap: 10px;
+  width: 100%;
+}
+
+.btn-outline, .btn-primary {
+  flex: 1;
+  padding: 0.6rem;
+  border-radius: 8px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  border: none;
+}
+
+.btn-outline {
+  background: #1e293b;
+  color: white;
+}
+
+.btn-primary {
+  background: #00c896;
+  color: white;
+}
+
+/* Contenedor del Mapa */
+.map-container {
+  border-radius: 20px;
+  overflow: hidden;
+  border: 1px solid #e2e8f0;
+  background: white;
+}
+
+
+/* Si el header tiene la clase worker-theme, se verá azul/verde según tu diseño */
+.worker-theme {
+  background-color: #00c896 !important; /* Color para la trabajadora */
+}
+
+/* ============================================
+   ESTILOS DE AUTENTICACIÓN (LOGIN/REGISTRO)
+   ============================================ */
+
+.auth-container {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #00c896 0%, #02a77a 100%);
+  padding: 2rem;
+  font-family: 'Inter', sans-serif;
+}
+
+.auth-card {
+  background: white;
+  border-radius: 20px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+  padding: 3rem;
+  max-width: 420px;
+  width: 100%;
+  animation: slideInUp 0.5s ease-out;
+}
+
+.auth-card-large {
+  max-width: 520px;
+}
+
+.auth-header {
+  text-align: center;
+  margin-bottom: 2.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.auth-logo {
+  width: 56px;
+  height: 56px;
+  margin-bottom: 1rem;
+  object-fit: contain;
+}
+
+.auth-title {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #0f172a;
+  margin: 0 0 0.5rem 0;
+  background: linear-gradient(135deg, #00c896 0%, #02a77a 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.auth-subtitle {
+  font-size: 0.95rem;
+  color: #64748b;
+  margin: 0;
+  font-weight: 500;
+}
+
+.auth-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.form-row .form-group {
+  margin-bottom: 0;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-bottom: 0;
+}
+
+.form-label {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #1e293b;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.form-input,
+.form-textarea {
+  padding: 0.875rem 1rem;
+  border: 2px solid #e2e8f0;
+  border-radius: 10px;
+  font-size: 0.95rem;
+  font-family: inherit;
+  background-color: #f8fafc;
+  transition: all 0.3s ease;
+  color: #1e293b;
+}
+
+.form-input:focus,
+.form-textarea:focus {
+  outline: none;
+  border-color: #667eea;
+  background-color: white;
+  box-shadow: 0 0 0 3px rgba(0, 200, 150, 0.1);
+}
+
+.form-input::placeholder,
+.form-textarea::placeholder {
+  color: #94a3b8;
+}
+
+.form-textarea {
+  resize: vertical;
+  min-height: 100px;
+}
+
+.btn-login {
+  padding: 0.875rem 1.5rem;
+  background: linear-gradient(135deg, #00c896 0%, #02a77a 100%);
+  color: white;
+  border: none;
+  border-radius: 10px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-top: 0.5rem;
+  box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+}
+
+.btn-login:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
+}
+
+.btn-login:active {
+  transform: translateY(0);
+}
+
+.btn-login:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.auth-footer {
+  text-align: center;
+  margin-top: 2rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid #e2e8f0;
+}
+
+.auth-footer p {
+  font-size: 0.9rem;
+  color: #64748b;
+  margin: 0 0 0.5rem 0;
+}
+
+.auth-link {
+  color: #667eea;
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.3s ease;
+}
+
+.auth-link:hover {
+  color: #00c896;
+  text-decoration: underline;
+}
+
+.auth-back {
+  color: #64748b;
+  text-decoration: none;
+  font-size: 0.9rem;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  display: inline-block;
+}
+
+.auth-back:hover {
+  color: #667eea;
+  transform: translateX(-2px);
+}
+
+@keyframes slideInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Opciones de registro (Cliente/Trabajador) */
+.register-options {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  margin: 2rem 0;
+}
+
+.register-option {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem 1.5rem;
+  border: 2px solid #e2e8f0;
+  border-radius: 15px;
+  text-decoration: none;
+  color: inherit;
+  transition: all 0.3s ease;
+  background-color: #f8fafc;
+  cursor: pointer;
+}
+
+.register-option:hover {
+  border-color: #667eea;
+  background-color: #f1f5f9;
+  transform: translateY(-4px);
+  box-shadow: 0 10px 25px rgba(102, 126, 234, 0.15);
+}
+
+.option-icon {
+  font-size: 2.5rem;
+  margin-bottom: 0.75rem;
+}
+
+.register-option h3 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #0f172a;
+  margin: 0.5rem 0 0.25rem 0;
+  text-align: center;
+}
+
+.register-option p {
+  font-size: 0.8rem;
+  color: #64748b;
+  margin: 0;
+  text-align: center;
+}
+
+/* Grid de servicios compacta */
+.services-grid-compact {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.75rem;
+  margin-top: 0.75rem;
+}
+
+@media (max-width: 480px) {
+  .auth-card {
+    padding: 2rem 1.5rem;
+    border-radius: 16px;
+  }
+
+  .auth-title {
+    font-size: 1.5rem;
+  }
+
+  .form-row {
+    grid-template-columns: 1fr;
+  }
+
+  .register-options {
+    grid-template-columns: 1fr;
+  }
+
+  .services-grid-compact {
+    grid-template-columns: 1fr;
+  }
+}

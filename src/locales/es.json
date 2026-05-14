@@ -1,0 +1,82 @@
+{
+  "common": {
+    "appTitle": "InCleanHome",
+    "search": "Buscar",
+    "filter": "Filtrar",
+    "sort": "Ordenar",
+    "retry": "Reintentar",
+    "loading": "Cargando..."
+  },
+  "catalog": {
+    "title": "Catálogo de",
+    "titleHighlight": "Profesionales",
+    "subtitle": "Encuentra la trabajadora del hogar ideal para tus necesidades. Todos los perfiles están verificados.",
+    "results": "Resultados",
+    "noResults": "No se encontraron resultados con estos filtros.",
+    "clearFilters": "Limpiar filtros",
+    "searching": "Buscando profesionales..."
+  },
+  "worker": {
+    "back": "Volver al catálogo",
+    "verified": "Verificada",
+    "rating": "Calificación",
+    "reviews": "Reseñas",
+    "experience": "Años exp.",
+    "hourlyRate": "Tarifa por hora",
+    "bookNow": "Contratar ahora",
+    "aboutMe": "Acerca de mí",
+    "servicesTitle": "Servicios ofrecidos",
+    "skills": "Habilidades",
+    "availability": "Disponibilidad semanal",
+    "languages": "Idiomas",
+    "loadingProfile": "Cargando perfil..."
+  },
+  "services": {
+    "cleaning": "Limpieza",
+    "cooking": "Cocina",
+    "garden": "Jardín",
+    "caregiving": "Cuidados"
+  },
+  "days": {
+    "monday": "Lun",
+    "tuesday": "Mar",
+    "wednesday": "Mié",
+    "thursday": "Jue",
+    "friday": "Vie",
+    "saturday": "Sáb",
+    "sunday": "Dom"
+  },
+  "languageNames": {
+    "es": "🇵🇪 Español",
+    "en": "🇺🇸 Inglés",
+    "noResults": "No se encontraron resultados",
+    "clearFilters": "Limpiar filtros"
+  },
+  "booking": {
+    "title": "Reservar un servicio",
+    "subtitle": "Completa los detalles para programar tu limpieza del hogar.",
+    "date": {
+      "label": "Fecha del servicio",
+      "placeholder": "Selecciona una fecha"
+    },
+    "startTime": {
+      "label": "Hora de inicio",
+      "placeholder": "Selecciona hora de inicio"
+    },
+    "endTime": {
+      "label": "Hora de fin",
+      "placeholder": "Selecciona hora de fin"
+    },
+    "instructions": {
+      "label": "Instrucciones adicionales",
+      "placeholder": "Cualquier solicitud especial o nota para el limpiador..."
+    },
+    "summary": {
+      "title": "Resumen de costos",
+      "duration": "Duración",
+      "rate": "Tarifa",
+      "total": "Total estimado"
+    },
+    "submit": "Confirmar reserva"
+  }
+}
