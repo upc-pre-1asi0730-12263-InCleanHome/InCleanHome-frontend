@@ -1,6 +1,6 @@
 /**
- * Value Object Role — rol del usuario en el sistema.
- * Capa: IAM / domain / model
+ * Value Object Role — user's role in the system.
+ * Layer: IAM / domain / model
  */
 export const Role = Object.freeze({
   CLIENT: "client",

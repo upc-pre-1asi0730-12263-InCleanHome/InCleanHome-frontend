@@ -1,9 +1,9 @@
 /**
- * Entidad User — usuario autenticado del sistema.
- * Capa: IAM / domain / model
+ * User Entity — authenticated system user.
+ * Layer: IAM / domain / model
  *
- * Representa al usuario actual (cliente o trabajadora) y sus
- * datos de identidad. La info de credenciales (token) vive aparte.
+ * Represents the current user (customer or employee) and their 
+ * identity data. Credential (token) information is stored separately.
  */
 import { Role } from "./role.value.js";
 

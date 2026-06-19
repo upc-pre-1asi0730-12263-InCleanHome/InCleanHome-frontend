@@ -1,6 +1,6 @@
 /**
- * Cliente API de autenticación.
- * Capa: IAM / infrastructure
+ * Authentication API client.
+ * Layer: IAM / infrastructure
  *
  * Endpoints:
  *   POST /auth/login

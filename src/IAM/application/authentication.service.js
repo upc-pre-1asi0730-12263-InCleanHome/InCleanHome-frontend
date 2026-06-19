@@ -1,15 +1,15 @@
 /**
- * Servicio de aplicación de autenticación.
- * Capa: IAM / application
+ * Authentication application service.
+ * Layer: IAM / application
  *
- * Implementa los casos de uso de IAM:
- *   - Iniciar sesión
- *   - Registrar cliente
- *   - Registrar trabajadora
- *   - Cerrar sesión
+ * Implements the following IAM use cases:
+ *   - Log in
+ *   - Register customer
+ *   - Register employee
+ *   - Log out
  *
- * Encapsula la llamada a la API + la actualización del auth store.
- * Las vistas (LoginView, RegisterView) llaman a este servicio.
+ * Encapsulates the API call and the auth store update.
+ * The views (LoginView, RegisterView) call this service.
  */
 import { AuthApi } from "../infrastructure/auth.api.js";
 import { useAuthStore } from "./auth.store.js";

@@ -1,6 +1,6 @@
 /**
- * Servicio de subida de documentos (onboarding trabajadora).
- * Capa: IAM / application
+ * Document upload service (employee onboarding).
+ * Layer: IAM / application
  */
 import { AuthApi } from "../infrastructure/auth.api.js";
 import { DocumentType } from "../domain/model/document-type.value.js";

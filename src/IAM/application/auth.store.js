@@ -1,13 +1,13 @@
 /**
  * Auth store (Pinia).
- * Capa: IAM / application
+ * Layer: IAM / application
  *
- * Mantiene el estado de la sesión actual (usuario + token) y expone
- * acciones para iniciar/cerrar sesión. La persistencia se delega a
- * `AuthStorage` (infraestructura), no se accede a localStorage aquí.
+ * Maintains the current session state (user + token) and exposes
+ * actions to log in/log out. Persistence is delegated to
+ * `AuthStorage` (infrastructure); localStorage is not accessed here.
  *
- * Este store es consumido por el router, los layouts (Shared) y
- * varias vistas de otros contexts. Es la "API pública" de IAM.
+ * This store is consumed by the router, the layouts (Shared) and
+ * various views from other contexts. It is the "public API" of IAM.
  */
 import { defineStore } from "pinia";
 import { ref, computed } from "vue";
