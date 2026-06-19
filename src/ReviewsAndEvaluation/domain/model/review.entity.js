@@ -1,6 +1,7 @@
 /**
  * Entidad Review — reseña de un cliente sobre una trabajadora.
  * Capa: ReviewsAndEvaluation / domain / model
+ * Incluye mapeo desde API (fromApi). Rating en escala 1-5.
  */
 export class Review {
   constructor({ id, bookingId, workerId, clientId, clientName, rating, comment, createdAt }) {
