@@ -5,7 +5,7 @@
  * Lista canónica de servicios que ofrecen las trabajadoras.
  * Se usa en Booking, Profiles, SearchAndCatalog y IAM (registro).
  *
- * Los strings coinciden con las claves de i18n (worker.services.*)
+ * Todos los strings coinciden con las claves de i18n (worker.services.*)
  * y con los valores que espera el backend.
  */
 export const SERVICE_TYPES = Object.freeze([
