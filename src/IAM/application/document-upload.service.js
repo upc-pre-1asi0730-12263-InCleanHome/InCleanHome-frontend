@@ -6,7 +6,7 @@ import { AuthApi } from "../infrastructure/auth.api.js";
 import { DocumentType } from "../domain/model/document-type.value.js";
 
 export const DocumentUploadService = {
-  /** Convierte el File a base64 y lo sube al backend. */
+  /** Converts the file to base64 and uploads it to the backend. */
   async uploadDocument(file, documentType) {
     if (!file || !file.name.endsWith(".pdf")) {
       throw new Error("Solo se aceptan archivos PDF");
