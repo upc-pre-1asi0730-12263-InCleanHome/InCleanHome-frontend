@@ -1,6 +1,6 @@
 /**
  * Servicio de aplicación de mensajería.
- * Capa: Shared / application
+ * Capa: Shared
  *
  * Orquesta la API y mapea las respuestas a entidades de dominio.
  * Las vistas dependen de este servicio, NO del cliente HTTP.
