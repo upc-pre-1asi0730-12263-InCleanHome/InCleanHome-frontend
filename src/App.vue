@@ -1,71 +1,26 @@
-
-<script setup>
-import Layout from './shared/presentation/components/layout.vue';
-import { RouterView, useRoute } from 'vue-router';
-import { computed } from 'vue';
-
-const route = useRoute();
-
-// Rutas que no deben mostrar el layout (login y registro)
-const authRoutes = ['/login', '/register', '/register-client', '/register-worker'];
-const showLayout = computed(() => !authRoutes.includes(route.path));
-</script>
-
 <template>
-  <Layout v-if="showLayout">
-    <router-view />
-  </Layout>
-  <router-view v-else />
+  <router-view />
+  <Transition name="fade">
+    <div v-if="toast.visible" :class="['toast', `toast-${toast.type}`]">
+      {{ toast.message }}
+    </div>
+  </Transition>
 </template>
 
+<script setup>
+/**
+ * Componente raíz de la app.
+ * Solo monta el router-view y el toast global (Shared).
+ */
+import { useToastStore } from "./Shared/application/toast.store.js";
+const toast = useToastStore();
+</script>
+
 <style>
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-html, body {
-  font-family: 'Inter', 'Nunito', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-  background: #f7fafc;
-  color: #1a2e4a;
-}
-
-#app {
-  width: 100%;
-  min-height: 100vh;
-}
-
-@media (min-width: 1024px) {
-  header {
-    display: flex;
-    place-items: center;
-    padding-right: calc(var(--section-gap) / 2);
-  }
-
-  .logo {
-    margin: 0 2rem 0 0;
-  }
-
-  header .wrapper {
-    display: flex;
-    place-items: flex-start;
-    flex-wrap: wrap;
-  }
-}
-
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
-
-html, body {
-  font-family: 'Inter', 'Nunito', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-  background: #f7fafc;
-  color: #1a2e4a;
-}
-
-#app {
-  width: 100%;
-  min-height: 100vh;
-}
-
-body { margin: 0; font-family: 'Inter', sans-serif; }
+.toast { position: fixed; right: 1rem; bottom: 1rem; background: rgba(17,24,39,0.95); color: white; padding: 0.75rem 1rem; border-radius: 0.5rem; box-shadow: 0 6px 20px rgba(2,6,23,0.2); z-index: 60; max-width: 90vw; }
+.toast-success { background:#00B272; }
+.toast-error { background:#ef4444; }
+.fade-enter-active, .fade-leave-active { transition: opacity .2s ease, transform .2s ease; }
+.fade-enter-from, .fade-leave-to { opacity: 0; transform: translateY(6px); }
+@media (max-width: 640px) { .toast { right: 0.5rem; left: 0.5rem; bottom: 0.75rem; } }
 </style>
