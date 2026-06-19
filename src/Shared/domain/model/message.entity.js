@@ -1,5 +1,5 @@
 /**
- * Entidad Message — mensajería entre cliente y trabajadora.
+ * Entidad Message — mensajería entre cliente y trabajador.
  * Capa: Shared / domain / model
  *
  * Representa un mensaje individual dentro de una conversación.
