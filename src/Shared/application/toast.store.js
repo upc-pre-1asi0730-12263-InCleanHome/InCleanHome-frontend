@@ -4,7 +4,7 @@
  *
  * Estado global de notificaciones. Cualquier capa de presentación
  * de cualquier bounded context puede llamar a toast.success("...") /
- * toast.error("...") para mostrar feedback al usuario.
+ * toast.error("...") para mostrar feedback a los usuarios.
  */
 import { defineStore } from "pinia";
 import { ref } from "vue";
