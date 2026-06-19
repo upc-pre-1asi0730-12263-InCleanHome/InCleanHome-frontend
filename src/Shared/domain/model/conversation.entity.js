@@ -1,5 +1,5 @@
 /**
- * Entidad Conversation — agrupa los mensajes con otro usuario.
+ * Entidad Conversation — agrupa mensajes con otro usuario.
  * Capa: Shared / domain / model
  */
 export class Conversation {
