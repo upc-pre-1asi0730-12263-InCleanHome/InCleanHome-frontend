@@ -20,7 +20,7 @@ export class User {
   isWorker() { return this.role === Role.WORKER; }
   isClient() { return this.role === Role.CLIENT; }
 
-  /** Iniciales para mostrar en avatares. */
+  /** Initials to display on avatars. */
   initials() {
     return (this.name || "U")
       .split(" ")
@@ -30,7 +30,7 @@ export class User {
       .toUpperCase();
   }
 
-  /** Construye el User a partir de la respuesta del backend. */
+  /** Builds the User from the backend response. */
   static fromApi(raw) {
     if (!raw) return null;
     return new User({
