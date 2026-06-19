@@ -26,7 +26,7 @@ export const AuthApi = {
     return data; // { user, token }
   },
 
-  /** Sube un documento (base64) — background_check | experience */
+  /** Upload a document (base64) — background_check | experiences */
   async uploadWorkerDocument({ documentType, fileBase64, fileName }) {
     const { data } = await apiClient.post("/auth/worker/upload-document", {
       documentType,
