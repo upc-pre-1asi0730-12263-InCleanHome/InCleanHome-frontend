@@ -1,6 +1,6 @@
 /**
- * Entidad WorkerProfile — perfil editable de una trabajadora.
- * Capa: Profiles / domain / model
+ * WorkerProfile Entity — editable profile of a worker.
+ * Layer: Profiles / domain / model
  */
 export class WorkerProfile {
   constructor({ name, phone, age, experienceYears, hourlyRate,

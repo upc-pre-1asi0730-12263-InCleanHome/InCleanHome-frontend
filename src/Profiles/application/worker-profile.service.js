@@ -1,6 +1,6 @@
 /**
- * Servicio de aplicación del perfil de trabajadora.
- * Capa: Profiles / application
+ * Employee profile application service.
+ * Layer: Profiles / application
  */
 import { ProfileApi } from "../infrastructure/profile.api.js";
 import { WorkerProfile } from "../domain/model/worker-profile.entity.js";

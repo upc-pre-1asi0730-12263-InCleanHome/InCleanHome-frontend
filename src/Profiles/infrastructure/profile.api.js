@@ -1,13 +1,13 @@
 /**
- * Cliente API de perfiles.
- * Capa: Profiles / infrastructure
+ * Profiles API Client
+ * Layer: Profiles / infrastructure
  *
  * Endpoints:
- *   GET  /workers/me/profile      — perfil trabajadora
+ *   GET  /workers/me/profile      — employee profile
  *   PUT  /workers/me/profile
- *   GET  /workers/me/stats        — estadísticas trabajadora
- *   GET  /my-profile              — perfil cliente
- *   PATCH /my-profile             — actualizar perfil cliente
+ *   GET  /workers/me/stats        — employee statistics
+ *   GET  /my-profile              — client profile
+ *   PATCH /my-profile             — update client profile
  */
 import apiClient from "../../Shared/infrastructure/http/api.client.js";
 

@@ -1,6 +1,6 @@
 /**
- * Value Object WorkerStats — estadísticas del dashboard de la trabajadora.
- * Capa: Profiles / domain / model
+ * Value Object WorkerStats — worker dashboard statistics.
+ * Layer: Profiles / domain / model
  */
 export class WorkerStats {
   constructor({ netEarnings=0, platformFeeDeducted=0, completedServices=0,

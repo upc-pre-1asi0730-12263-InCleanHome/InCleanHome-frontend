@@ -1,6 +1,6 @@
 /**
- * Entidad ClientProfile — perfil editable de un cliente.
- * Capa: Profiles / domain / model
+ * ClientProfile Entity — editable client profile.
+ * Layer: Profiles / domain / model
  */
 export class ClientProfile {
   constructor({ name, phone, email }) {

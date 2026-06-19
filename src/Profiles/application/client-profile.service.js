@@ -1,6 +1,6 @@
 /**
- * Servicio de aplicación del perfil de cliente.
- * Capa: Profiles / application
+ * Client profile application service.
+ * Layer: Profiles / application
  */
 import { ProfileApi } from "../infrastructure/profile.api.js";
 import { ClientProfile } from "../domain/model/client-profile.entity.js";
