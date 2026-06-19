@@ -1,7 +1,7 @@
 /**
  * Entidad PaymentMethod — método de pago guardado por el usuario.
  * Capa: Payments / domain / model
-  * Incluye mapeo desde API (fromApi) e icono por tipo de pago.
+ * Incluye mapeo desde API (fromApi) e icono por tipo de pago.
  */
 export class PaymentMethod {
   constructor({ id, type, label, details, isDefault = false }) {
