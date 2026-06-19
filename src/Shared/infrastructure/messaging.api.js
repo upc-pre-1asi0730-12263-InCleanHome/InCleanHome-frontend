@@ -2,7 +2,7 @@
  * Cliente API de mensajería.
  * Capa: Shared / infrastructure
  *
- * Hace las llamadas HTTP al backend y devuelve la data cruda.
+ * Hace las llamadas HTTP al backend y devuelve la data real.
  * El mapeo a entidades de dominio lo hace la capa de aplicación.
  */
 import apiClient from "./http/api.client.js";
