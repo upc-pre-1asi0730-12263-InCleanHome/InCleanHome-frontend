@@ -15,7 +15,7 @@ import apiClient from "../../Shared/infrastructure/http/api.client.js";
 import { AuthStorage } from "../../Shared/infrastructure/storage/auth.storage.js";
 
 export const useAuthStore = defineStore("auth", () => {
-  // Restauramos sesión desde el almacenamiento
+  // We restore the session from storage.
   const user = ref(AuthStorage.getUser());
   const token = ref(AuthStorage.getToken());
 
@@ -42,7 +42,7 @@ export const useAuthStore = defineStore("auth", () => {
     AuthStorage.setUser(merged);
   }
 
-  // Al cargar, si hay token persistido, lo aplicamos al cliente HTTP
+  // On load, if a persisted token exists, we apply it to the HTTP client.
   if (token.value) {
     apiClient.defaults.headers.common["Authorization"] = `Bearer ${token.value}`;
   }
